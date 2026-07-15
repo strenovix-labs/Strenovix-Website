@@ -1,0 +1,205 @@
+.mbs-scroll-zone {
+  height: 200vh;   /* was 280vh — shorter = less dead space after animation */
+  position: relative;
+  background: #0B0B0F;
+}
+
+.mbs-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;   /* was hidden — let MacBook scale without clipping */
+  padding-bottom: 40px;
+}
+
+.mbs-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+  max-width: 600px;
+  padding: 0 24px;
+}
+
+/* ── MacBook shell ── */
+.mbs-macbook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(700px, 90vw);
+}
+
+.mbs-perspective {
+  width: 100%;
+  perspective: 1400px;
+  perspective-origin: 50% 110%;
+}
+
+/* LID */
+.mbs-lid {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: #1a1a1c;
+  border-radius: 12px 12px 0 0;
+  border: 2px solid #3a3a3c;
+  position: relative;
+  transform-origin: bottom center;
+  overflow: hidden;
+  box-shadow: 0 -4px 40px rgba(0,0,0,0.6);
+}
+
+.mbs-lid-frame {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.mbs-camera {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2a2a2c;
+  border: 1px solid #3a3a3c;
+  z-index: 5;
+}
+
+.mbs-badge-wrap {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+/* Screen */
+.mbs-screen {
+  position: absolute;
+  inset: 14px 10px 6px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #000;
+}
+
+.mbs-screen-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.mbs-screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mbs-screen-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0d0d14 0%, #1a1025 100%);
+  padding: 20px;
+}
+
+.mbs-placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  height: 100%;
+}
+
+.mbs-placeholder-card {
+  border-radius: 8px;
+  background: rgba(163, 116, 255, 0.08);
+  border: 1px solid rgba(163, 116, 255, 0.15);
+  animation: mbs-pulse 2s ease-in-out infinite alternate;
+}
+
+.mbs-placeholder-card:nth-child(2) { animation-delay: 0.3s; }
+.mbs-placeholder-card:nth-child(3) { animation-delay: 0.6s; }
+.mbs-placeholder-card:nth-child(4) { animation-delay: 0.9s; }
+.mbs-placeholder-card:nth-child(5) { animation-delay: 1.2s; }
+.mbs-placeholder-card:nth-child(6) { animation-delay: 1.5s; }
+
+@keyframes mbs-pulse {
+  from { background: rgba(163, 116, 255, 0.06); }
+  to   { background: rgba(163, 116, 255, 0.14); }
+}
+
+.mbs-screen-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.5) 100%);
+  pointer-events: none;
+}
+
+/* BASE */
+.mbs-base {
+  width: 105%;
+  background: linear-gradient(to bottom, #1e1e20, #141416);
+  border-radius: 0 0 12px 12px;
+  border: 2px solid #3a3a3c;
+  border-top: 1px solid #2a2a2c;
+  padding: 16px 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+}
+
+.mbs-hinge {
+  width: 40%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3a3a3c 20%, #4a4a4c 50%, #3a3a3c 80%, transparent);
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+
+.mbs-keyboard-area {
+  width: 88%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mbs-key-row {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.mbs-key {
+  flex: 1;
+  height: 10px;
+  max-width: 28px;
+  border-radius: 3px;
+  background: #252527;
+  border: 1px solid #333;
+}
+
+.mbs-trackpad {
+  width: 35%;
+  height: 40px;
+  border-radius: 8px;
+  background: #1c1c1e;
+  border: 1px solid #333;
+}
+
+.mbs-foot-bar {
+  width: 112%;
+  height: 6px;
+  background: linear-gradient(to bottom, #2a2a2c, #1a1a1c);
+  border-radius: 0 0 6px 6px;
+  border: 1px solid #3a3a3c;
+  border-top: none;
+}

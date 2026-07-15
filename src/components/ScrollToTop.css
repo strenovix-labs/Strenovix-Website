@@ -1,0 +1,71 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  
+  /* Glassmorphism */
+  background: rgba(10, 6, 16, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
+  /* Border & Glow */
+  border: 1px solid rgba(207, 158, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+              0 0 15px rgba(207, 158, 255, 0.15);
+              
+  color: #000000;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.scroll-to-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 0%, rgba(207, 158, 255, 0.4), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.scroll-to-top:hover {
+  border-color: rgba(207, 158, 255, 0.6);
+}
+
+.scroll-to-top:hover::before {
+  opacity: 1;
+}
+
+.scroll-to-top svg {
+  position: relative;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+  }
+  .scroll-to-top svg {
+    width: 20px;
+    height: 20px;
+  }
+}

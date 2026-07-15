@@ -1,0 +1,106 @@
+.gbg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ── Dot grid ─────────────────────────────────────────────── */
+.gbg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(108, 99, 255, 0.25) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* ── Horizontal scan line ──────────────────────────────────── */
+.gbg-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 216, 255, 0.4) 30%,
+    rgba(0, 216, 255, 0.8) 50%,
+    rgba(0, 216, 255, 0.4) 70%,
+    transparent 100%
+  );
+  filter: blur(1px);
+  box-shadow: 0 0 20px rgba(0, 216, 255, 0.3), 0 0 60px rgba(0, 216, 255, 0.1);
+  top: 0;
+  will-change: transform;
+}
+
+/* ── Dark vignette edges ──────────────────────────────────── */
+.gbg-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    transparent 50%,
+    rgba(5, 5, 10, 0.7) 100%
+  );
+}
+
+/* ── Corner HUD brackets ──────────────────────────────────── */
+.gbg-corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+
+.gbg-corner--tl { top: 24px;  left: 24px; }
+.gbg-corner--tr { top: 24px;  right: 24px; }
+.gbg-corner--bl { bottom: 24px; left: 24px; }
+.gbg-corner--br { bottom: 24px; right: 24px; }
+
+.gbg-corner-dot {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  opacity: 0.7;
+}
+
+.gbg-corner--tl .gbg-corner-dot { top: 0;   left: 0; }
+.gbg-corner--tr .gbg-corner-dot { top: 0;   right: 0; }
+.gbg-corner--bl .gbg-corner-dot { bottom: 0; left: 0; }
+.gbg-corner--br .gbg-corner-dot { bottom: 0; right: 0; }
+
+.gbg-corner-line {
+  position: absolute;
+  background: rgba(0, 216, 255, 0.45);
+}
+
+.gbg-corner-line--h {
+  height: 1px;
+  width: 24px;
+}
+
+.gbg-corner-line--v {
+  width: 1px;
+  height: 24px;
+}
+
+/* TL corners */
+.gbg-corner--tl .gbg-corner-line--h { top: 0;    left: 5px; }
+.gbg-corner--tl .gbg-corner-line--v { left: 0;   top: 5px;  }
+
+/* TR corners */
+.gbg-corner--tr .gbg-corner-line--h { top: 0;    right: 5px; }
+.gbg-corner--tr .gbg-corner-line--v { right: 0;  top: 5px;  }
+
+/* BL corners */
+.gbg-corner--bl .gbg-corner-line--h { bottom: 0; left: 5px; }
+.gbg-corner--bl .gbg-corner-line--v { left: 0;   bottom: 5px; }
+
+/* BR corners */
+.gbg-corner--br .gbg-corner-line--h { bottom: 0; right: 5px; }
+.gbg-corner--br .gbg-corner-line--v { right: 0;  bottom: 5px; }

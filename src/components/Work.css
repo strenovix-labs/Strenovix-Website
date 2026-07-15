@@ -1,0 +1,130 @@
+.work {
+  position: relative;
+  z-index: 1;
+  padding: 120px 0;
+  border-top: 1px solid var(--border);
+}
+
+.work-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.work-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.work-head-left { max-width: 500px; }
+
+.work-sub {
+  font-size: 1rem;
+  color: var(--white-60);
+  margin-top: 16px;
+  line-height: 1.75;
+}
+
+/* ─── Case list ──────────────────────────────────────────── */
+.work-list { display: flex; flex-direction: column; gap: 0; }
+
+.work-item {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr 48px;
+  gap: 48px;
+  align-items: center;
+  padding: 44px 0;
+  border-top: 1px solid var(--border);
+  cursor: default;
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+.work-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--purple-dim), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.work-item:hover::before { opacity: 1; }
+.work-item:last-child { border-bottom: 1px solid var(--border); }
+
+/* Large case number */
+.work-case-num {
+  font-family: 'Syne', monospace;
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: rgba(232,232,255,0.06);
+  transition: color 0.4s ease;
+  user-select: none;
+}
+
+.work-item:hover .work-case-num {
+  color: var(--purple);
+  opacity: 0.35;
+}
+
+.work-item-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.work-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.work-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.work-desc {
+  font-size: 0.88rem;
+  color: var(--white-60);
+  line-height: 1.75;
+}
+
+.work-arrow {
+  width: 22px;
+  height: 22px;
+  color: var(--white-20, rgba(232,232,255,0.2));
+  flex-shrink: 0;
+  transition: color 0.3s, transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+
+.work-item:hover .work-arrow {
+  color: var(--cyan);
+  transform: translate(4px, -4px);
+}
+
+@media (max-width: 1000px) {
+  .work-inner { padding: 0 32px; }
+  .work-item { grid-template-columns: 64px 1fr; gap: 24px; }
+  .work-item > :nth-child(3), .work-arrow { display: none; }
+  .work-case-num { font-size: 2.5rem; }
+}
+
+@media (max-width: 600px) {
+  .work-inner { padding: 0 24px; }
+  .work-item { grid-template-columns: 1fr; gap: 12px; padding: 32px 0; }
+  .work-case-num { display: none; }
+}

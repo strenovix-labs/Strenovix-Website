@@ -1,0 +1,199 @@
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 1.5rem 0;
+    transition: padding 0.3s ease;
+}
+
+.navbar-container.scrolled {
+    padding: 0.5rem 0;
+}
+
+.navbar {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: background-color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-container.scrolled .navbar {
+    border: 0.5px solid rgba(163, 116, 255, 0.2);
+    box-shadow: 0 0 40px rgba(108, 63, 212, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 26px;
+}
+
+.navbar-logo .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    background: linear-gradient(135deg, var(--purple-glow, #000000), var(--pink, #333333));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    font-family: var(--sans, sans-serif);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white, #ffffff);
+    opacity: 0.7;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    color: var(--purple-glow, #000000);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--purple-glow, #000000), transparent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: linear-gradient(135deg, var(--purple-mid, #6c3fd4), var(--purple-dark, #4b2aa5));
+    color: var(--white, #ffffff);
+    border: 0.5px solid rgba(163, 116, 255, 0.4);
+    border-radius: 0.6rem;
+    padding: 0 1.2rem;
+    height: 38px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.nav-cta:hover {
+    background: linear-gradient(135deg, var(--purple-bright, #c4a1ff), var(--purple-mid, #6c3fd4));
+    box-shadow: 0 0 20px rgba(163, 116, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 10;
+}
+
+.hamburger-line {
+    width: 26px;
+    height: 2px;
+    background-color: var(--white, #ffffff);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger-line.open:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+}
+.hamburger-line.open:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: absolute;
+    top: 75px;
+    left: 5%;
+    width: 90%;
+    border-radius: 1rem;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 0.5px solid rgba(163, 116, 255, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    z-index: 998;
+}
+
+.mobile-menu.open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 1.5rem;
+}
+
+.mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.mobile-nav-link {
+    font-family: var(--sans, sans-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--white, #ffffff);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+    color: var(--purple-glow, #000000);
+}
+
+.mobile-cta {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 200px;
+}
+
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+    .mobile-toggle {
+        display: flex;
+    }
+}

@@ -1,0 +1,105 @@
+/* Shared page back-bar (used by all 4 service pages) */
+.page-back-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(4, 4, 4, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 900;
+}
+
+.page-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 0;
+  transition: color 0.2s;
+}
+
+.page-back-btn:hover { color: #000000; }
+
+.page-back-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: #000000;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page-back-cta {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  padding: 8px 20px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.page-back-cta:hover {
+  background: rgba(0, 0, 0, 0.85);
+  transform: translateY(-1px);
+}
+
+/* ── AppDevPage ─────────────────────────────── */
+.adp-root {
+  min-height: 100vh;
+  background: transparent;
+}
+
+.adp-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 60px 0;
+  background: transparent;
+}
+
+.adp-footer-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 0 32px;
+}
+
+.adp-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.adp-stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: -0.04em;
+}
+
+.adp-stat-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.3);
+}

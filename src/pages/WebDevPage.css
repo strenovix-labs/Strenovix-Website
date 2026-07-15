@@ -1,0 +1,194 @@
+.wdp-root {
+  min-height: 100vh;
+  background: transparent;
+}
+
+/* Hero */
+.wdp-hero {
+  padding: 120px 32px 80px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wdp-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.4rem;
+  display: block;
+}
+
+.wdp-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 1.4rem;
+}
+
+.hp-glow {
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wdp-sub {
+  font-size: 1.05rem;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.wdp-macbook-wrap {
+  overflow: hidden;
+  margin-bottom: -60px; /* pull next section up to close the gap */
+}
+
+/* Generic section */
+.wdp-section {
+  padding: 100px 32px;
+  max-width: 1160px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.wdp-section-head { margin-bottom: 52px; }
+
+.wdp-section-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.3);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.wdp-section-h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+/* ── 1. Horizontal scroll ── */
+.wdp-hscroll-section { padding-right: 0; }
+
+.wdp-hscroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 24px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(163,116,255,0.3) transparent;
+}
+
+.wdp-hcard {
+  flex-shrink: 0;
+  width: 340px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #0c0c0c;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.wdp-hcard:hover {
+  border-color: rgba(163, 116, 255, 0.3);
+  transform: translateY(-6px);
+}
+
+.wdp-hcard-img { height: 180px; overflow: hidden; }
+
+.wdp-placeholder-img {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a1025 0%, #0d1a2a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(163, 116, 255, 0.3);
+}
+
+.wdp-placeholder-img.tall { height: 100%; }
+
+.wdp-hcard-body { padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.wdp-hcard-label { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #000000; }
+.wdp-hcard-tech  { font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(163,116,255,0.8); }
+.wdp-hcard-desc  { font-size: 0.88rem; color: rgba(0, 0, 0,0.6); line-height: 1.65; }
+
+/* ── 2. Bento grid ── */
+.wdp-bento {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 280px 200px;
+  gap: 12px;
+}
+
+.wdp-bento-large { grid-column: 1; grid-row: 1 / 3; border-radius: 16px; overflow: hidden; position: relative; border: 1px solid rgba(0, 0, 0,0.07); }
+.wdp-bento-sm    { border-radius: 16px; overflow: hidden; position: relative; border: 1px solid rgba(0, 0, 0,0.07); }
+.wdp-bento-wide  { grid-column: 2 / 4; border-radius: 16px; overflow: hidden; position: relative; border: 1px solid rgba(0, 0, 0,0.07); }
+
+.wdp-bento-img { width: 100%; height: 100%; background: linear-gradient(135deg, #1a1025 0%, #0d1a2a 100%); transition: transform 0.5s; }
+.wdp-bento-large:hover .wdp-bento-img,
+.wdp-bento-sm:hover .wdp-bento-img,
+.wdp-bento-wide:hover .wdp-bento-img { transform: scale(1.04); }
+
+.wdp-bento-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(to top, rgba(4,4,4,0.95), transparent);
+  font-size: 0.82rem;
+  color: rgba(0, 0, 0,0.8);
+}
+
+/* ── 4. Split layout ── */
+.wdp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.wdp-split-text { display: flex; flex-direction: column; gap: 20px; }
+.wdp-split-desc { font-size: 0.95rem; color: rgba(0, 0, 0,0.6); line-height: 1.75; }
+.wdp-split-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.wdp-tag { font-size: 0.72rem; padding: 5px 12px; border-radius: 100px; border: 1px solid rgba(0, 0, 0,0.1); color: rgba(0, 0, 0,0.6); }
+.wdp-split-img { height: 440px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(0, 0, 0,0.07); }
+
+/* ── 5. Metric cards ── */
+.wdp-metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.wdp-metric-card {
+  border: 1px solid rgba(0, 0, 0,0.07);
+  border-radius: 16px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #0c0c0c;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.wdp-metric-card:hover { border-color: rgba(163,116,255,0.3); transform: translateY(-6px); }
+.wdp-metric-val   { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800; color: #000000; letter-spacing: -0.04em; line-height: 1; }
+.wdp-metric-label { font-size: 0.85rem; font-weight: 600; color: rgba(0, 0, 0,0.8); }
+.wdp-metric-sub   { font-size: 0.75rem; color: rgba(0, 0, 0,0.3); margin-top: 4px; }
+
+@media (max-width: 900px) {
+  .wdp-bento { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .wdp-bento-large { grid-column: 1 / 3; grid-row: auto; }
+  .wdp-bento-wide  { grid-column: 1 / 3; }
+  .wdp-split { grid-template-columns: 1fr; }
+  .wdp-metric-grid { grid-template-columns: 1fr 1fr; }
+}

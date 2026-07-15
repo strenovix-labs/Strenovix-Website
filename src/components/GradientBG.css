@@ -1,0 +1,40 @@
+.gbg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gbg-blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.gbg-blob--indigo {
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.22) 0%, transparent 70%);
+  top: -180px;
+  left: -120px;
+  filter: blur(60px);
+}
+
+.gbg-blob--cyan {
+  width: 580px;
+  height: 580px;
+  background: radial-gradient(circle, rgba(0, 216, 255, 0.14) 0%, transparent 70%);
+  top: 60px;
+  right: -80px;
+  filter: blur(70px);
+}
+
+.gbg-blob--pink {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(255, 78, 205, 0.11) 0%, transparent 70%);
+  bottom: 15%;
+  left: 28%;
+  filter: blur(80px);
+}

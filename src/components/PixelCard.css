@@ -1,0 +1,45 @@
+.pixel-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    inset: 0;
+}
+
+.pixel-card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(163, 116, 255, 0.2);
+    border-radius: 20px;
+    isolation: isolate;
+    transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    user-select: none;
+    background: var(--surface);
+}
+
+.pixel-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, rgba(108, 63, 212, 0.3), transparent 75%);
+    opacity: 0;
+    transition: opacity 600ms ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pixel-card:hover,
+.pixel-card:focus-within {
+    border-color: rgba(163, 116, 255, 0.6);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(108, 63, 212, 0.3), 0 0 0 1px rgba(163, 116, 255, 0.1);
+}
+
+.pixel-card:hover::before,
+.pixel-card:focus-within::before {
+    opacity: 1;
+}

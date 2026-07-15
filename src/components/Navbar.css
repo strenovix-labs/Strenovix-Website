@@ -1,0 +1,196 @@
+.nav-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  pointer-events: none;
+}
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: min(92%, 920px);
+  height: 58px;
+  padding: 0 8px 0 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(108, 99, 255, 0.15);
+  background: rgba(5, 5, 10, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  pointer-events: all;
+}
+
+.nav-pill--scrolled {
+  background: rgba(13, 13, 26, 0.9);
+  border-color: rgba(108, 99, 255, 0.25);
+  box-shadow: 0 0 0 1px rgba(108, 99, 255, 0.08), 0 16px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.nav-logo-text {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* Center nav links */
+.nav-links-wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-links-wrapper .gooey-nav-container nav ul { gap: 8px; }
+.nav-links-wrapper .gooey-nav-container nav ul li a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0 18px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* CTA */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--purple);
+  color: #fff;
+  border-radius: 100px;
+  padding: 0 20px;
+  height: 40px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--cyan) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.nav-cta:hover::before { opacity: 1; }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px var(--purple-glow); }
+.nav-cta span, .nav-cta svg { position: relative; z-index: 1; }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(3.25px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { transform: translateY(-3.25px) rotate(-45deg); }
+
+/* Mobile menu */
+.nav-mobile {
+  width: min(92%, 920px);
+  border-radius: 20px;
+  border: 1px solid rgba(108, 99, 255, 0.12);
+  background: rgba(13, 13, 26, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 8px;
+  transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.3s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-mobile.open {
+  max-height: 320px;
+  opacity: 1;
+  pointer-events: all;
+  padding: 16px 0;
+}
+
+.nav-mobile-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white-60);
+  padding: 16px 32px;
+  width: 100%;
+  text-align: center;
+  transition: color 0.2s;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.nav-mobile-link:hover { color: var(--purple); }
+
+.nav-mobile-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--purple);
+  color: #fff;
+  border-radius: 100px;
+  padding: 12px 32px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 12px;
+  transition: all 0.3s;
+}
+
+.nav-mobile-cta:hover { background: var(--cyan); color: var(--black); }
+
+@media (max-width: 768px) {
+  .nav-links-wrapper, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-logo-text { font-size: 0.82rem; }
+}

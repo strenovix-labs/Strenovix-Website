@@ -1,0 +1,31 @@
+.founders {
+  position: relative;
+  z-index: 1;
+  padding: 120px 0;
+  border-top: 1px solid var(--border);
+}
+
+.founders-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.founders-head {
+  max-width: 600px;
+  margin-bottom: 64px;
+}
+
+.founders-sub {
+  font-size: 1rem;
+  color: var(--white-60);
+  line-height: 1.75;
+  margin-top: 16px;
+}
+
+/* ChromaGrid wrapper — let it breathe */
+.founders-chroma {
+  width: 100%;
+  min-height: 480px;
+  position: relative;
+}

@@ -1,0 +1,210 @@
+/* ─── Hero shell ─────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px 60px 56px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ─── Top row ────────────────────────────────────────────── */
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow-text {
+  font-family: 'Syne', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--white-60);
+}
+
+.hero-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan), 0 0 20px rgba(0,216,255,0.4);
+  animation: dot-pulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 10px var(--cyan), 0 0 20px rgba(0,216,255,0.4); }
+  50%       { box-shadow: 0 0 4px var(--cyan), 0 0 6px rgba(0,216,255,0.2); }
+}
+
+.hero-year {
+  font-family: 'Syne', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--white-30);
+}
+
+/* ─── Body: heading + floating stats ─────────────────────── */
+.hero-body {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  flex: 1;
+  padding: 40px 0 20px;
+  position: relative;
+}
+
+/* ─── Giant heading ──────────────────────────────────────── */
+.hero-heading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(4.5rem, 11vw, 11.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.hline {
+  display: flex;
+  gap: 0.22em;
+  flex-wrap: nowrap;
+}
+
+/* "DIGITAL PRODUCTS" gets the gradient */
+.hline--accent .hword {
+  background: linear-gradient(100deg, var(--purple) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hword {
+  display: inline-block;
+  will-change: clip-path;
+}
+
+/* ─── Right: floating stat column ────────────────────────── */
+.hero-stats-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-self: flex-end;
+  padding-bottom: 8px;
+  min-width: 140px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0 16px 24px;
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  gap: 4px;
+}
+
+.hero-stat:last-child {
+  border-bottom: none;
+}
+
+.hero-stat-num {
+  font-family: 'Syne', monospace;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--purple);
+}
+
+/* ─── Bottom bar ─────────────────────────────────────────── */
+.hero-bottom {
+  position: relative;
+}
+
+.hero-bar {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--purple) 0%,
+    var(--cyan) 50%,
+    transparent 100%
+  );
+  margin-bottom: 28px;
+  transform-origin: left center;
+}
+
+.hero-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hero-tags {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-tag {
+  font-family: 'Syne', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white-30);
+  position: relative;
+}
+
+.hero-tag + .hero-tag::before {
+  content: '·';
+  position: absolute;
+  left: -12px;
+  color: var(--white-10);
+}
+
+.hero-btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero { padding: 90px 32px 48px; }
+  .hero-stats-col { display: none; }
+  .hero-heading { font-size: clamp(3.5rem, 12vw, 7rem); }
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 80px 24px 40px; }
+  .hero-heading { font-size: clamp(2.8rem, 14vw, 5rem); }
+  .hero-bottom-inner { flex-direction: column; align-items: flex-start; }
+}
