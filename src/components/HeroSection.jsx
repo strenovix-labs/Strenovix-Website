@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, ExternalLink, Mail } from 'lucide-react';
+import { ArrowRight, ExternalLink, Mail, Menu, X } from 'lucide-react';
 import { FiLinkedin as Linkedin, FiInstagram as Instagram, FiCopy as Copy, FiCheck as Check } from 'react-icons/fi';
 import Dither from './ui/Dither';
 import buildingIntelligenceImg from '../assets/building-intelligence.png';
@@ -16,6 +16,7 @@ export default function HeroSection({ onSubscribe }) {
   const [email, setEmail] = useState('');
   const [emailPopup, setEmailPopup] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleCopy = () => {
     navigator.clipboard.writeText('strenovix@gmail.com');
@@ -107,9 +108,41 @@ export default function HeroSection({ onSubscribe }) {
             >
               Start a Project
             </a>
+            {/* Hamburger button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-white/80 hover:text-white p-1.5 hover:bg-white/5 rounded-full transition-colors flex items-center justify-center"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
           </div>
 
         </div>
+
+        {/* Mobile dropdown menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden max-w-5xl mx-auto mt-2 px-4 py-3 liquid-glass rounded-2xl border border-white/[0.08] shadow-lg flex flex-col gap-1 relative z-50 animate-fade-in">
+            {NAV_LINKS.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-white/80 hover:text-white text-sm font-medium py-2 px-3 hover:bg-white/5 rounded-lg transition-all duration-200"
+              >
+                {label}
+              </a>
+            ))}
+            <hr className="border-white/10 my-1" />
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/80 hover:text-white text-sm font-medium py-2 px-3 hover:bg-white/5 rounded-lg transition-all duration-200"
+            >
+              Get in touch
+            </a>
+          </div>
+        )}
       </div>
 
       {/* ── Hero content ─────────────────────────────────────── */}

@@ -139,3 +139,15 @@
   .mkp-step:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.08); border-radius: 0 0 12px 12px; }
   .mkp-step:first-child { border-radius: 12px 12px 0 0; }
 }
+
+@media (max-width: 600px) {
+  .mkp-case-grid {
+    grid-template-columns: 1fr;
+  }
+  .mkp-hero {
+    padding: 100px 20px 60px;
+  }
+  .mkp-channels, .mkp-cases, .mkp-process {
+    padding: 50px 20px;
+  }
+}
