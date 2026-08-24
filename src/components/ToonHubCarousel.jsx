@@ -2,12 +2,12 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const MEMBERS = [
-  { name: 'Nivesh Varun', role: 'Founder & Lead Engineer', image: '/team/nivesh.png' },
-  { name: 'Rupesh', role: 'Creative Director', image: '/team/rupesh.png' },
-  { name: 'Sajan', role: 'Backend Architect', image: '/team/sajan.png' },
-  { name: 'Sanjay', role: 'ML / AI Engineer', image: '/team/sanjay.png' },
-  { name: 'Tamil', role: 'UI / UX Designer', image: '/team/tamil.png' },
-  { name: 'Vijai', role: 'Growth Strategist', image: '/team/vijai-compressed.png' },
+  { name: 'Nivesh Varun', role: 'AIML Engineer', image: '/team/nivesh.png' },
+  { name: 'Rupesh', role: 'App Developer', image: '/team/rupesh.png' },
+  { name: 'Sajan', role: 'FullStack Developer', image: '/team/sajan.png' },
+  { name: 'Sanjay', role: 'AIML Engineer', image: '/team/sanjay.png' },
+  { name: 'Tamil', role: 'FullStack Developer', image: '/team/tamil.png' },
+  { name: 'Vijai', role: 'App Developer', image: '/team/vijai-compressed.png' },
 ];
 
 const N = MEMBERS.length;
