@@ -2,10 +2,9 @@ import { useRouter } from '../RouterContext';
 import { HeroParallax } from '@/components/ui/hero-parallax';
 import './AppDevPage.css';
 
-// ── Product list (user's structure — replace thumbnails with your own images) ──
 export const products = [
-  { title: "Moonbeam",            link: "https://gomoonbeam.com",             thumbnail: "https://www.aceternity.com/images/products/thumbnails/new/moonbeam.png" },
-  { title: "Cursor",              link: "https://cursor.so",                  thumbnail: "https://www.aceternity.com/images/products/thumbnails/new/cursor.png" },
+  { title: "Project Neyam",       link: "#",                                  thumbnail: "/projects/neyam-cover.jpg" },
+  { title: "VoteAble",            link: "#",                                  thumbnail: "/projects/neyam-phones.jpg" },
   { title: "Rogue",               link: "https://userogue.com",               thumbnail: "https://www.aceternity.com/images/products/thumbnails/new/rogue.png" },
   { title: "Editorially",         link: "https://editorially.org",            thumbnail: "https://www.aceternity.com/images/products/thumbnails/new/editorially.png" },
   { title: "Editrix AI",          link: "https://editrix.ai",                 thumbnail: "https://www.aceternity.com/images/products/thumbnails/new/editrix.png" },

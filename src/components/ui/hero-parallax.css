@@ -18,7 +18,7 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.4);
   margin-bottom: 1.4rem;
 }
 
@@ -26,14 +26,14 @@
   font-family: 'Syne', sans-serif;
   font-size: clamp(2.4rem, 6vw, 5.5rem);
   font-weight: 800;
-  color: #000000;
+  color: #ffffff;
   letter-spacing: -0.04em;
   line-height: 1.05;
   margin-bottom: 1.4rem;
 }
 
 .hp-glow {
-  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -41,7 +41,7 @@
 
 .hp-sub {
   font-size: 1.05rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
   max-width: 520px;
   margin: 0 auto;
@@ -74,7 +74,7 @@
   height: 220px;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   background: #0c0c0c;
   position: relative;
   cursor: pointer;
@@ -95,7 +95,7 @@
   font-family: 'Syne', sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #000000;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -103,7 +103,7 @@
   transition: color 0.2s;
 }
 
-.hp-card-title:hover { color: #000000; }
+.hp-card-title:hover { color: #ffffff; }
 
 .hp-img-wrap {
   display: block;

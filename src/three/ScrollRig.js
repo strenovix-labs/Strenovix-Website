@@ -8,20 +8,23 @@
 // couple them, that risks frame-order bugs).
 
 let progress = 0;
+let maxScrollY = 0;
 const subscribers = new Set();
-let rafId = null;
 let refCount = 0;
 
-function computeProgress() {
+function updateMaxScrollY() {
+  if (typeof window === 'undefined') return;
   const doc = document.documentElement;
-  const max = doc.scrollHeight - window.innerHeight;
-  return max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+  maxScrollY = Math.max(0, doc.scrollHeight - window.innerHeight);
 }
 
-function tick() {
-  progress = computeProgress();
-  subscribers.forEach((fn) => fn(progress));
-  rafId = requestAnimationFrame(tick);
+function handleScroll() {
+  const currentScrollY = window.scrollY;
+  const newProgress = maxScrollY > 0 ? Math.min(1, Math.max(0, currentScrollY / maxScrollY)) : 0;
+  if (newProgress !== progress) {
+    progress = newProgress;
+    subscribers.forEach((fn) => fn(progress));
+  }
 }
 
 // Idempotent + ref-counted: safe to call from multiple mounted components.
@@ -29,13 +32,16 @@ function tick() {
 export function startScrollRig() {
   refCount += 1;
   if (refCount === 1) {
-    rafId = requestAnimationFrame(tick);
+    updateMaxScrollY();
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', updateMaxScrollY);
   }
   return () => {
     refCount -= 1;
-    if (refCount <= 0 && rafId) {
-      cancelAnimationFrame(rafId);
-      rafId = null;
+    if (refCount <= 0) {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateMaxScrollY);
     }
   };
 }
@@ -58,15 +64,15 @@ const SECTION_IDS = ['home', 'our-story', 'services', 'work', 'team', 'contact']
 let sectionBounds = [];
 
 function computeSectionBounds() {
-  const max = document.documentElement.scrollHeight - window.innerHeight;
-  if (max <= 0) return [];
+  updateMaxScrollY();
+  if (maxScrollY <= 0) return [];
   return SECTION_IDS.map((id) => {
     const el = document.getElementById(id);
     if (!el) return null;
     return {
       id,
-      start: el.offsetTop / max,
-      end: (el.offsetTop + el.offsetHeight) / max,
+      start: el.offsetTop / maxScrollY,
+      end: (el.offsetTop + el.offsetHeight) / maxScrollY,
     };
   }).filter(Boolean);
 }

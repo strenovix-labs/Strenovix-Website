@@ -1,30 +1,53 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-// Google Apps Script Web App URL bound to the Strenovix leads spreadsheet.
-// Deploy the doPost script from google-apps-script.gs (repo root) and paste
-// the resulting /exec URL here — see that file's header comment for steps.
-const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyzEQQi4fQ7n8mnzy3jvaHsUY0qABPU_YYPG2cBOiUKkFxYAe5VKuIr8T0ZEe2AvDQPLA/exec';
-
-export default function ContactSection() {
+export default function ContactSection({ prefilledEmail }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
-  const [formState, setFormState] = useState({ name: '', email: '', phone: '', projectDetails: '' });
+  const [formState, setFormState] = useState({ name: '', email: '', phone: '', projectDetails: '', honeypot: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+
+  useEffect(() => {
+    if (prefilledEmail) {
+      setFormState((s) => ({ ...s, email: prefilledEmail }));
+    }
+  }, [prefilledEmail]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status === 'sending') return;
+
+    // Check required fields
+    if (!formState.name.trim() || !formState.email.trim() || !formState.projectDetails.trim()) {
+      setStatus('error');
+      return;
+    }
+
     setStatus('sending');
     try {
-      await fetch(SHEET_WEBHOOK_URL, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({ ...formState, submittedAt: new Date().toISOString() }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          phone: formState.phone,
+          message: formState.projectDetails,
+          honeypot: formState.honeypot,
+        }),
       });
-      setStatus('sent');
-    } catch {
+
+      if (response.ok) {
+        setStatus('sent');
+        setFormState({ name: '', email: '', phone: '', projectDetails: '', honeypot: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Submission failed:', error);
       setStatus('error');
     }
   };
@@ -54,7 +77,7 @@ export default function ContactSection() {
               className="font-medium leading-none tracking-[-0.04em] mb-8"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#E1E0CC' }}
             >
-              Ready to build<br />something great?
+              Ready to build<br /><span className="font-serif italic text-[#F04A00]">something great?</span>
             </h2>
             <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-sm">
               Drop us a message and we'll get back to you within 24 hours. We love talking
@@ -79,11 +102,22 @@ export default function ContactSection() {
           >
             {status === 'sent' ? (
               <div className="bg-[#101010] rounded-2xl p-10 text-center">
-                <p className="text-primary text-lg font-medium mb-2">Message received!</p>
+                <p className="text-primary text-lg font-medium mb-2">Thanks! Your message has been sent successfully.</p>
                 <p className="text-gray-400 text-sm">We'll be in touch shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Honeypot field for anti-spam protection */}
+                <div style={{ display: 'none' }} aria-hidden="true">
+                  <input
+                    type="text"
+                    name="honeypot"
+                    value={formState.honeypot}
+                    onChange={(e) => setFormState((s) => ({ ...s, honeypot: e.target.value }))}
+                    tabIndex="-1"
+                    autoComplete="off"
+                  />
+                </div>
                 {fields.map((field) => (
                   <div key={field.key}>
                     <input
@@ -118,8 +152,7 @@ export default function ContactSection() {
                 </button>
                 {status === 'error' && (
                   <p className="text-red-400 text-xs">
-                    Something went wrong — email us directly at{' '}
-                    <a href="mailto:strenovix@gmail.com" className="underline">strenovix@gmail.com</a>.
+                    Something went wrong. Please try again.
                   </p>
                 )}
               </form>

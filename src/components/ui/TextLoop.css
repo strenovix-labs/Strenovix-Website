@@ -1,0 +1,26 @@
+.text-loop {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.text-loop-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+.text-loop-text {
+  user-select: none;
+  will-change: transform;
+}
+
+.text-loop-measure {
+  visibility: hidden;
+  pointer-events: none;
+}

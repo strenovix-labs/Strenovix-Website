@@ -1,4 +1,5 @@
 import { useRouter } from '../RouterContext';
+import BorderGlow from './BorderGlow';
 import './Services.css';
 
 const services = [
@@ -8,7 +9,6 @@ const services = [
     route: 'services/app-dev',
     desc: 'Native and cross-platform apps built for performance, scalability, and exceptional UX — from concept to the App Store.',
     tags: ['React Native', 'Flutter', 'iOS', 'Android'],
-    accent: '#6c63ff',
   },
   {
     num: '02',
@@ -16,7 +16,6 @@ const services = [
     route: 'services/web-dev',
     desc: 'High-performance web applications engineered for speed, SEO, and seamless experiences that convert visitors into customers.',
     tags: ['React', 'Next.js', 'Node.js', 'TypeScript'],
-    accent: '#00d8ff',
   },
   {
     num: '03',
@@ -24,7 +23,6 @@ const services = [
     route: 'services/ml',
     desc: 'Custom AI and machine learning solutions that transform raw data into intelligent insights — your competitive edge.',
     tags: ['Python', 'TensorFlow', 'PyTorch', 'LLMs'],
-    accent: '#ff4ecd',
   },
   {
     num: '04',
@@ -32,7 +30,6 @@ const services = [
     route: 'services/marketing',
     desc: 'Data-driven strategies that amplify your brand, grow your audience, and turn traffic into measurable revenue.',
     tags: ['SEO', 'Paid Ads', 'Content', 'Analytics'],
-    accent: '#00d8ff',
   },
 ];
 
@@ -42,30 +39,33 @@ export default function Services() {
   return (
     <section className="services" id="services">
       <div className="services-inner">
-
         <div className="services-head">
-          <div className="services-head-left">
-            <span className="section-label reveal">Services</span>
-            <h2 className="section-heading reveal">
-              Four pillars.<br />One studio.
-            </h2>
-            <p className="services-sub reveal">
-              Visually stunning, interactive products built to assert your digital dominance.
-            </p>
-          </div>
+          <span className="section-label reveal">Services</span>
+          <h2 className="section-heading reveal reveal-delay-1">
+            Our approach to success<br />is built on four pillars.
+          </h2>
+          <p className="services-sub reveal reveal-delay-2">
+            Visually stunning, interactive products made to assert your digital dominance and captivate.
+          </p>
         </div>
 
         <div className="services-grid">
-          {services.map((s) => (
-            <div
-              key={s.num}
-              className="service-card reveal"
-              onClick={() => navigate(s.route)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && navigate(s.route)}
-              style={{ '--accent': s.accent }}
+          {services.map((s, i) => (
+            <BorderGlow
+              key={i}
+              className={`reveal reveal-delay-${i + 1}`}
+              backgroundColor="var(--black)"
+              borderRadius={20}
+              glowColor="268 100 76"
+              colors={['#c299ff', '#ff99cc', '#99ccff']}
             >
+              <div
+                className="service-card"
+                onClick={() => navigate(s.route)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => e.key === 'Enter' && navigate(s.route)}
+              >
               <div className="service-card-top">
                 <span className="service-num">{s.num}</span>
                 <svg className="service-arrow" viewBox="0 0 20 20" fill="none">
@@ -75,13 +75,13 @@ export default function Services() {
               <h3 className="service-title">{s.title}</h3>
               <p className="service-desc">{s.desc}</p>
               <div className="service-tags">
-                {s.tags.map((t) => <span key={t} className="service-tag">{t}</span>)}
+                {s.tags.map(t => <span key={t} className="service-tag">{t}</span>)}
               </div>
-              <span className="service-cta">View work →</span>
-            </div>
+              <div className="service-cta">View Our Work →</div>
+              </div>
+            </BorderGlow>
           ))}
         </div>
-
       </div>
     </section>
   );

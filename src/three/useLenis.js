@@ -7,6 +7,7 @@ import Lenis from 'lenis';
 export default function useLenis() {
   useEffect(() => {
     const lenis = new Lenis();
+    window.lenis = lenis;
 
     let rafId;
     function raf(time) {
@@ -18,6 +19,7 @@ export default function useLenis() {
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      window.lenis = null;
     };
   }, []);
 }

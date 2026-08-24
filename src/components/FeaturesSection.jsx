@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
+import { useRouter } from '../RouterContext';
 import WordsPullUpMultiStyle from './WordsPullUpMultiStyle';
 
 const CARD_EASE = [0.22, 1, 0.36, 1];
@@ -9,6 +10,7 @@ const FEATURES = [
   {
     number: '01',
     title: 'App Development.',
+    route: 'services/app-dev',
     icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171918_4a5edc79-d78f-4637-ac8b-53c43c220606.png&w=1280&q=85',
     items: [
       'Cross-platform iOS & Android builds',
@@ -20,6 +22,7 @@ const FEATURES = [
   {
     number: '02',
     title: 'Web Engineering.',
+    route: 'services/web-dev',
     icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171741_ed9845ab-f5b2-4018-8ce7-07cc01823522.png&w=1280&q=85',
     items: [
       'Cinematic, animation-rich front-ends',
@@ -30,6 +33,7 @@ const FEATURES = [
   {
     number: '03',
     title: 'ML / AI Solutions.',
+    route: 'services/ml',
     icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171809_f56666dc-c099-4778-ad82-9ad4f209567b.png&w=1280&q=85',
     items: [
       'Custom model training & fine-tuning',
@@ -42,6 +46,7 @@ const FEATURES = [
 function FeatureCard({ feature, index }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { navigate } = useRouter();
 
   return (
     <motion.div
@@ -80,8 +85,12 @@ function FeatureCard({ feature, index }) {
 
       {/* Learn more */}
       <a
-        href="#services"
-        className="inline-flex items-center gap-1 text-primary text-xs sm:text-sm mt-8 group"
+        href={`#/${feature.route}`}
+        onClick={(e) => {
+          e.preventDefault();
+          navigate(feature.route);
+        }}
+        className="inline-flex items-center gap-1 text-primary text-xs sm:text-sm mt-8 group cursor-pointer"
       >
         <span>Learn more</span>
         <ArrowRight
@@ -108,11 +117,13 @@ function VideoCard() {
     >
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4"
+        src="/Strenovix.mp4"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
+        style={{ transform: 'translate3d(0, 0, 0)', backfaceVisibility: 'hidden' }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       <p
@@ -133,7 +144,7 @@ export default function FeaturesSection() {
     },
     {
       text: 'Built for pure vision. Powered by technology.',
-      className: 'text-gray-500',
+      className: 'text-[#F04A00] font-serif italic',
     },
   ];
 

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, Globe, Link2, Mail, MapPin } from 'lucide-react';
 import WordsPullUp from './WordsPullUp';
+import TextLoop from './ui/TextLoop';
 
 const NAV_LINKS = [
   { label: 'Our Story', href: '#our-story' },
@@ -61,7 +62,7 @@ export default function FooterSection() {
             {/* Big animated headline */}
             <div
               className="font-medium leading-[0.9] tracking-[-0.04em] mb-10"
-              style={{ fontSize: 'clamp(2.6rem, 6vw, 5.5rem)', color: '#E1E0CC' }}
+              style={{ fontSize: 'clamp(2.6rem, 6vw, 5.5rem)', color: '#F04A00' }}
             >
               <WordsPullUp text="Let's build something remarkable." />
             </div>
@@ -151,22 +152,25 @@ export default function FooterSection() {
         </div>
       </div>
 
-      {/* ── Giant outlined wordmark ──────────────────────────── */}
-      <div className="relative z-10 mt-16 md:mt-20 overflow-hidden">
-        <div className="border-t border-white/[0.04]" />
-        <h2
-          aria-hidden="true"
-          className="font-medium leading-none tracking-[-0.06em] select-none px-2 md:px-4"
-          style={{
-            fontSize: 'clamp(4.5rem, 19vw, 20rem)',
-            color: 'transparent',
-            WebkitTextStroke: '1px rgba(255,255,255,0.05)',
-            lineHeight: 0.82,
-            marginTop: '-0.08em',
-          }}
-        >
-          Strenovix
-        </h2>
+      {/* ── Scrolling Text Ribbon ──────────────────────────── */}
+      <div className="relative z-10 mt-16 md:mt-20 overflow-hidden w-full">
+        <TextLoop
+          text="Strenovix"
+          shape="line"
+          speed={90}
+          direction="forward"
+          separator="✦"
+          curviness={90}
+          fontSize={32}
+          fontWeight={800}
+          letterSpacing={2}
+          uppercase
+          color="#000000"
+          ribbon
+          ribbonColor="#F04A00"
+          ribbonWidth={60}
+          pauseOnHover
+        />
       </div>
 
       {/* ── Bottom bar ───────────────────────────────────────── */}

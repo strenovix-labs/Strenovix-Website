@@ -3,11 +3,11 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const MEMBERS = [
   { name: 'Nivesh Varun', role: 'Founder & Lead Engineer', image: '/team/nivesh.png' },
-  { name: 'Rupesh',       role: 'Creative Director',        image: '/team/rupesh.png' },
-  { name: 'Sajan',        role: 'Backend Architect',        image: '/team/sajan.png' },
-  { name: 'Sanjay',       role: 'ML / AI Engineer',         image: '/team/sanjay.png' },
-  { name: 'Tamil',        role: 'UI / UX Designer',         image: '/team/tamil.png' },
-  { name: 'Vijai',        role: 'Growth Strategist',        image: '/team/vijai.png' },
+  { name: 'Rupesh', role: 'Creative Director', image: '/team/rupesh.png' },
+  { name: 'Sajan', role: 'Backend Architect', image: '/team/sajan.png' },
+  { name: 'Sanjay', role: 'ML / AI Engineer', image: '/team/sanjay.png' },
+  { name: 'Tamil', role: 'UI / UX Designer', image: '/team/tamil.png' },
+  { name: 'Vijai', role: 'Growth Strategist', image: '/team/vijai-compressed.png' },
 ];
 
 const N = MEMBERS.length;
@@ -40,7 +40,7 @@ function getRoleStyle(offset, isMobile) {
       return {
         left: '50%',
         height: isMobile ? '44%' : '64%',
-        bottom: isMobile ? '18%' : '0',
+        bottom: isMobile ? '24%' : '12%',
         transform: `translateX(-50%) scale(${isMobile ? 0.95 : 1.1})`,
         filter: 'blur(0px)',
         opacity: 1,
@@ -50,7 +50,7 @@ function getRoleStyle(offset, isMobile) {
       return {
         left: isMobile ? '78%' : '70%',
         height: isMobile ? '14%' : '24%',
-        bottom: isMobile ? '30%' : '14%',
+        bottom: isMobile ? '36%' : '24%',
         transform: 'translateX(-50%) scale(1)',
         filter: 'blur(2px)',
         opacity: 0.8,
@@ -60,7 +60,7 @@ function getRoleStyle(offset, isMobile) {
       return {
         left: isMobile ? '66%' : '61%',
         height: isMobile ? '10%' : '17%',
-        bottom: isMobile ? '30%' : '14%',
+        bottom: isMobile ? '36%' : '24%',
         transform: 'translateX(-50%) scale(1)',
         filter: 'blur(3px)',
         opacity: 0.45,
@@ -70,7 +70,7 @@ function getRoleStyle(offset, isMobile) {
       return {
         left: '50%',
         height: isMobile ? '8%' : '13%',
-        bottom: isMobile ? '30%' : '14%',
+        bottom: isMobile ? '36%' : '24%',
         transform: 'translateX(-50%) scale(1)',
         filter: 'blur(5px)',
         opacity: 0.28,
@@ -80,7 +80,7 @@ function getRoleStyle(offset, isMobile) {
       return {
         left: isMobile ? '34%' : '39%',
         height: isMobile ? '10%' : '17%',
-        bottom: isMobile ? '30%' : '14%',
+        bottom: isMobile ? '36%' : '24%',
         transform: 'translateX(-50%) scale(1)',
         filter: 'blur(3px)',
         opacity: 0.45,
@@ -91,7 +91,7 @@ function getRoleStyle(offset, isMobile) {
       return {
         left: isMobile ? '22%' : '30%',
         height: isMobile ? '14%' : '24%',
-        bottom: isMobile ? '30%' : '14%',
+        bottom: isMobile ? '36%' : '24%',
         transform: 'translateX(-50%) scale(1)',
         filter: 'blur(2px)',
         opacity: 0.8,
@@ -103,7 +103,7 @@ function getRoleStyle(offset, isMobile) {
 export default function ToonHubCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isMobile, setIsMobile]       = useState(
+  const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' ? window.innerWidth < 640 : false
   );
   const [nameVisible, setNameVisible] = useState(true);
@@ -137,7 +137,7 @@ export default function ToonHubCarousel() {
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'ArrowLeft')  navigate('prev');
+      if (e.key === 'ArrowLeft') navigate('prev');
       if (e.key === 'ArrowRight') navigate('next');
     };
     window.addEventListener('keydown', onKey);
@@ -200,7 +200,7 @@ export default function ToonHubCarousel() {
         <div style={{ position: 'absolute', inset: 0, zIndex: 3 }}>
           {MEMBERS.map((member, i) => {
             const offset = (i - activeIndex + N) % N;
-            const role   = getRoleStyle(offset, isMobile);
+            const role = getRoleStyle(offset, isMobile);
 
             return (
               <div
@@ -241,7 +241,7 @@ export default function ToonHubCarousel() {
         {/* Member name */}
         <div style={{
           position: 'absolute',
-          bottom: isMobile ? '11%' : '5%',
+          bottom: isMobile ? '14%' : '9%',
           left: '50%', transform: 'translateX(-50%)',
           zIndex: 30, textAlign: 'center', pointerEvents: 'none',
           transition: 'opacity 300ms ease',
@@ -270,7 +270,7 @@ export default function ToonHubCarousel() {
         {/* Nav buttons */}
         <div style={{
           position: 'absolute',
-          bottom: isMobile ? '1.5rem' : '2.5rem',
+          bottom: isMobile ? '1.5rem' : '2.0rem',
           left: isMobile ? '1rem' : '2rem', zIndex: 60,
         }}>
           <p style={{
@@ -319,7 +319,7 @@ export default function ToonHubCarousel() {
         {/* Dot indicators */}
         <div style={{
           position: 'absolute',
-          bottom: isMobile ? '1.5rem' : '2.8rem',
+          bottom: isMobile ? '1.5rem' : '2.2rem',
           left: '50%', transform: 'translateX(-50%)',
           zIndex: 60, display: 'flex', gap: '0.35rem', alignItems: 'center',
         }}>
@@ -342,7 +342,7 @@ export default function ToonHubCarousel() {
         {/* CTA */}
         <div style={{
           position: 'absolute',
-          bottom: isMobile ? '1.5rem' : '2.5rem',
+          bottom: isMobile ? '1.5rem' : '2.0rem',
           right: isMobile ? '1rem' : '2rem', zIndex: 60,
         }}>
           <a

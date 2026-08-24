@@ -18,8 +18,10 @@ export default function AboutSection() {
 
   const segments = [
     { text: 'We are Strenovix,', className: 'font-normal text-primary' },
-    { text: 'a self-built digital studio.', className: 'font-serif italic text-primary' },
-    { text: 'We craft apps, websites, ML models, and marketing that convert.', className: 'font-normal text-primary' },
+    { text: 'a self-built digital studio.', className: 'font-serif italic text-[#F04A00]' },
+    { text: 'We craft', className: 'font-normal text-primary' },
+    { text: 'AI, Web, Mobile, SaaS and SAP', className: 'font-normal text-[#F04A00]' },
+    { text: 'that convert.', className: 'font-normal text-primary' },
   ];
 
   return (

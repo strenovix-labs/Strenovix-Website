@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { RouterProvider, useRouter } from './RouterContext';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import FeaturesSection from './components/FeaturesSection';
@@ -8,19 +10,52 @@ import FooterSection from './components/FooterSection';
 import useLenis from './three/useLenis';
 import Scene3D from './three/Scene3D';
 
-export default function App() {
+import AppDevPage from './pages/AppDevPage';
+import WebDevPage from './pages/WebDevPage';
+import MLPage from './pages/MLPage';
+import MarketingPage from './pages/MarketingPage';
+
+function AppContent() {
   useLenis();
+  const { route } = useRouter();
+  const [prefilledEmail, setPrefilledEmail] = useState('');
+  const subPages = ['services/app-dev', 'services/web-dev', 'services/ml', 'services/marketing'];
+  const isSubPage = subPages.includes(route);
 
   return (
     <main className="bg-black">
       <Scene3D />
-      <HeroSection />
-      <AboutSection />
-      <FeaturesSection />
-      <WorkSection />
-      <ToonHubCarousel />
-      <ContactSection />
-      <FooterSection />
+      {route === 'services/app-dev' && <AppDevPage />}
+      {route === 'services/web-dev' && <WebDevPage />}
+      {route === 'services/ml' && <MLPage />}
+      {route === 'services/marketing' && <MarketingPage />}
+      {!isSubPage && (
+        <>
+          <HeroSection onSubscribe={(email) => {
+            setPrefilledEmail(email);
+            setTimeout(() => {
+              const el = document.getElementById('contact');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 50);
+          }} />
+          <AboutSection />
+          <FeaturesSection />
+          <WorkSection />
+          <ToonHubCarousel />
+          <ContactSection prefilledEmail={prefilledEmail} />
+          <FooterSection />
+        </>
+      )}
     </main>
+  );
+}
+
+export default function App() {
+  return (
+    <RouterProvider>
+      <AppContent />
+    </RouterProvider>
   );
 }

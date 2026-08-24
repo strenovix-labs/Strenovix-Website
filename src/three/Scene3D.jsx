@@ -1,9 +1,6 @@
 import { Suspense, useEffect, useMemo, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
-import Starfield from './Starfield';
 import CameraRig from './CameraRig';
-import GlassObjects from './GlassObjects';
-import FooterParticles from './FooterParticles';
 import { startScrollRig, refreshSectionBounds, subscribeScroll } from './ScrollRig';
 import './Scene3D.css';
 
@@ -67,9 +64,6 @@ export default function Scene3D() {
           <pointLight position={[4, 3, 6]} intensity={60} color="#fff7e8" />
           <pointLight position={[-4, -2, 4]} intensity={25} color="#DEDBC8" />
           <CameraRig />
-          <Starfield capability={capability} />
-          <GlassObjects capability={capability} />
-          {nearFooter && capability !== 'low' && <FooterParticles />}
         </Suspense>
       </Canvas>
     </div>

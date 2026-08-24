@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const FLAGSHIP = {
   title: 'NEYAM & VoteAble',
@@ -22,12 +22,20 @@ const FLAGSHIP = {
 const PROJECTS = [
   {
     id: '01',
-    title: 'Medical RAG Chatbot',
-    category: '2nd Place — Hack-a-Cure 2025, VIT Chennai (100+ teams)',
+    title: 'ISRO — Satellite Orbit & Clock Error Correction ',
+    category: 'GNSS Error Prediction Engine',
     description:
-      "An AI medical assistant built on a Retrieval-Augmented Generation pipeline — every answer is grounded in a curated corpus of medical literature via FAISS vector search, then reasoned over and phrased by Gemini AI so responses stay accurate instead of hallucinated. Built in a 24-hour hackathon sprint, it placed 2nd out of 100+ teams at Hack-a-Cure 2025, standing out to judges for retrieval precision and how confidently it handled edge-case medical queries under live testing.",
-    tags: ['LangChain', 'FAISS', 'Gemini AI'],
-    year: '2025',
+      "Built in collaboration with ISRO, this engine predicts satellite orbit and clock errors ahead of time instead of correcting for them after the fact. A 3-tier ensemble stacks LightGBM with deep learning models trained on historical GNSS telemetry, tightening the error margins that downstream navigation and positioning systems ultimately depend on.",
+    tags: ['3-Tier Ensemble', 'LightGBM', 'Deep Learning'],
+    year: '2026',
+    image: '/projects/gnss.jpg',
+    images: [
+      '/projects/gnss.jpg',
+      '/projects/gnss-dashboard.png',
+      '/projects/gnss-table.png',
+      '/projects/gnss-clock.png',
+      '/projects/gnss-ephemeris.png'
+    ],
   },
   {
     id: '02',
@@ -37,6 +45,15 @@ const PROJECTS = [
       'A team of specialized LangGraph agents that reads a codebase the way a senior engineer would — crawling the repository through the GitHub API, cross-referencing source against existing docs, and flagging drift: outdated explanations, undocumented functions, mismatched examples. Gemini AI powers the reasoning layer that turns raw code diffs into plain-English documentation fixes, so docs stay in sync with the code instead of quietly rotting.',
     tags: ['LangGraph', 'GitHub API', 'Gemini AI'],
     year: '2025',
+    image: '/projects/docrift.jpg',
+    images: [
+      '/projects/docrift.jpg',
+      '/projects/docrift-dashboard.jpg',
+      '/projects/docrift-generate.jpg',
+      '/projects/docrift-github.jpg',
+      '/projects/docrift-features.jpg',
+      '/projects/docrift-login.jpg'
+    ],
   },
   {
     id: '03',
@@ -46,6 +63,12 @@ const PROJECTS = [
       'A real-time computer vision pipeline running in active departmental use — InsightFace handles detection and face embedding, a FastAPI backend serves recognition requests with sub-second latency, and SQLite in WAL mode keeps attendance writes consistent even with multiple entry points hitting it concurrently. Replaced manual roll-call with a walk-up-and-go system that has been running in production without a single missed check-in.',
     tags: ['InsightFace', 'FastAPI', 'SQLite WAL'],
     year: '2026',
+    image: '/projects/face-attendance.jpg',
+    images: [
+      '/projects/face-attendance.jpg',
+      '/projects/face-attendance-add.jpg',
+      '/projects/face-attendance-capture.jpg'
+    ],
   },
   {
     id: '04',
@@ -55,16 +78,31 @@ const PROJECTS = [
       "An image forensics tool built to answer one question: is this photo real? Meiyo pairs a MobileNetV2 classifier with Error Level Analysis to surface compression and manipulation artefacts invisible to the naked eye, catching AI-generated and digitally altered images with 93% detection accuracy across benchmark testing — fast enough to run as a first-pass filter, not just a lab experiment.",
     tags: ['MobileNetV2', 'Error Level Analysis'],
     year: '2025',
+    image: '/projects/meiyo.jpg',
+    images: [
+      '/projects/meiyo.jpg',
+      '/projects/meiyo-analyzing.jpg',
+      '/projects/meiyo-manipulated.jpg',
+      '/projects/meiyo-forensics.jpg',
+      '/projects/meiyo-authentic.jpg',
+      '/projects/meiyo-authentic-forensics.jpg'
+    ],
   },
   {
     id: '05',
-    title: 'GNSS Error Prediction Engine',
-    category: 'ISRO — Satellite Orbit & Clock Error Correction',
+    title: 'Medical RAG Chatbot',
+    category: '2nd Place — Hack-a-Cure 2025, VIT Chennai (100+ teams)',
     description:
-      "Built in collaboration with ISRO, this engine predicts satellite orbit and clock errors ahead of time instead of correcting for them after the fact. A 3-tier ensemble stacks LightGBM with deep learning models trained on historical GNSS telemetry, tightening the error margins that downstream navigation and positioning systems ultimately depend on.",
-    tags: ['3-Tier Ensemble', 'LightGBM', 'Deep Learning'],
-    year: '2026',
-    image: '/projects/gnss.jpg',
+      "An AI medical assistant built on a Retrieval-Augmented Generation pipeline — every answer is grounded in a curated corpus of medical literature via FAISS vector search, then reasoned over and phrased by Gemini AI so responses stay accurate instead of hallucinated. Built in a 24-hour hackathon sprint, it placed 2nd out of 100+ teams at Hack-a-Cure 2025, standing out to judges for retrieval precision and how confidently it handled edge-case medical queries under live testing.",
+    tags: ['LangChain', 'FAISS', 'Gemini AI'],
+    year: '2025',
+    image: '/projects/medical-rag.jpg',
+    images: [
+      '/projects/medical-rag.jpg',
+      '/projects/medical-rag-chat.jpg',
+      '/projects/medical-rag-unsupported.jpg',
+      '/projects/medical-rag-quota.jpg'
+    ],
   },
   {
     id: '06',
@@ -75,6 +113,11 @@ const PROJECTS = [
     tags: ['React', 'Tailwind', 'Framer Motion'],
     year: '2025',
     image: '/projects/ecommerce.jpg',
+    images: [
+      '/projects/ecommerce.jpg',
+      '/projects/ecommerce-lee.png',
+      '/projects/ecommerce-bucket.png'
+    ],
   },
 ];
 
@@ -191,15 +234,93 @@ function ProjectRow({ project, index, onOpen }) {
   );
 }
 
+function ImageCarousel({ images, alt }) {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setCurrentIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setCurrentIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <div className="relative w-full aspect-[16/9] overflow-hidden border-b border-white/[0.06] bg-black group/carousel">
+      {/* Active Image */}
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentIdx}
+          src={images[currentIdx]}
+          alt={`${alt} - Slide ${currentIdx + 1}`}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.25 }}
+          className="w-full h-full object-contain"
+        />
+      </AnimatePresence>
+
+      {/* Navigation Arrows */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={handlePrev}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-black/80 z-10"
+            aria-label="Previous image"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={handleNext}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover/carousel:opacity-100 transition-opacity hover:bg-black/80 z-10"
+            aria-label="Next image"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </>
+      )}
+
+      {/* Indicators */}
+      {images.length > 1 && (
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 bg-black/40 px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/5">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIdx(idx);
+              }}
+              className={`w-1.5 h-1.5 rounded-full transition-all ${idx === currentIdx ? 'bg-white w-3' : 'bg-white/40'
+                }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ProjectModal({ project, onClose }) {
   useEffect(() => {
     if (!project) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', onKey);
+
+    if (window.lenis) {
+      window.lenis.stop();
+    }
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
     return () => {
       window.removeEventListener('keydown', onKey);
+      if (window.lenis) {
+        window.lenis.start();
+      }
       document.body.style.overflow = prevOverflow;
     };
   }, [project, onClose]);
@@ -224,6 +345,8 @@ function ProjectModal({ project, onClose }) {
             exit={{ y: 16, opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="relative bg-[#0c0c0c] border border-white/[0.08] rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+            data-lenis-prevent
+            style={{ overscrollBehavior: 'contain' }}
           >
             <button
               type="button"
@@ -234,11 +357,13 @@ function ProjectModal({ project, onClose }) {
               <X size={16} />
             </button>
 
-            {project.image && (
+            {project.images && project.images.length > 0 ? (
+              <ImageCarousel images={project.images} alt={project.title} />
+            ) : project.image ? (
               <div className="w-full aspect-[16/9] overflow-hidden border-b border-white/[0.06]">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
               </div>
-            )}
+            ) : null}
 
             <div className="p-8 md:p-10">
               <span className="text-gray-600 text-xs">{project.id} · {project.year}</span>
@@ -290,7 +415,7 @@ export default function WorkSection() {
               className="font-medium leading-none tracking-[-0.04em]"
               style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#E1E0CC' }}
             >
-              Projects that<br />define us.
+              Projects that<br /><span className="font-serif italic text-[#F04A00]">define us.</span>
             </h2>
           </motion.div>
 
