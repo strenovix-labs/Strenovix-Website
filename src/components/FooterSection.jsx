@@ -20,8 +20,8 @@ const SERVICES = [
 ];
 
 const SOCIALS = [
-  { label: 'GitHub', href: 'https://github.com/strenovix', icon: Globe },
-  { label: 'LinkedIn', href: 'https://linkedin.com', icon: Link2 },
+  { label: 'GitHub', href: 'https://github.com/strenovix-labs', icon: Globe },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/strenovix', icon: Link2 },
   { label: 'Email', href: 'mailto:strenovix@gmail.com', icon: Mail },
 ];
 
@@ -143,7 +143,7 @@ export default function FooterSection() {
                 ))}
                 <li className="inline-flex items-center gap-2 text-gray-500 text-sm">
                   <MapPin size={13} />
-                  Chennai, India
+                  Dindigul, India
                 </li>
               </ul>
             </motion.div>
