@@ -40,7 +40,7 @@ export default function AboutSection() {
           </div>
 
           {/* Scroll-linked character reveal paragraph */}
-          <div ref={containerRef} className="max-w-2xl mx-auto">
+          <div ref={containerRef} className="relative max-w-2xl mx-auto">
             <p
               className="text-xs sm:text-sm md:text-base"
               style={{ color: '#DEDBC8', lineHeight: 1.7 }}

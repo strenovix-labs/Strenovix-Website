@@ -141,7 +141,7 @@ export default function ContactSection({ prefilledEmail }) {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="group inline-flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-5 pr-1 py-1 transition-all duration-300 w-full sm:w-auto disabled:opacity-60"
+                  className="group inline-flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-5 pr-1 py-1 transition-all duration-300 w-fit disabled:opacity-60"
                 >
                   <span className="font-medium text-sm text-black">
                     {status === 'sending' ? 'Sending…' : 'Send message'}

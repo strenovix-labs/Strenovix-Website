@@ -5,8 +5,8 @@ const MEMBERS = [
   { name: 'Nivesh Varun', role: 'AIML Engineer', image: '/team/nivesh.png' },
   { name: 'Rupesh', role: 'App Developer', image: '/team/rupesh.png' },
   { name: 'Sajan', role: 'FullStack Developer', image: '/team/sajan.png' },
-  { name: 'Sanjay', role: 'AIML Engineer', image: '/team/sanjay.png' },
-  { name: 'Tamil', role: 'FullStack Developer', image: '/team/tamil.png' },
+  { name: 'Sanjay', role: 'SaaS Engineer', image: '/team/sanjay.png' },
+  { name: 'Tamil', role: 'Data Analyst', image: '/team/tamil.png' },
   { name: 'Vijai', role: 'App Developer', image: '/team/vijai-compressed.png' },
 ];
 
