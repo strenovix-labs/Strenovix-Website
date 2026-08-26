@@ -17,20 +17,21 @@ export default function AboutSection() {
   const chars = ABOUT_TEXT.split('');
 
   const segments = [
-    { text: 'We are Strenovix,', className: 'font-normal text-primary' },
+    { text: 'We are', className: 'font-normal text-black' },
+    { text: 'Strenovix,', className: 'font-migra font-extrabold text-black' },
     { text: 'a self-built digital studio.', className: 'font-serif italic text-[#F04A00]' },
-    { text: 'We craft', className: 'font-normal text-primary' },
+    { text: 'We craft', className: 'font-normal text-black' },
     { text: 'AI, Web, Mobile, SaaS and SAP', className: 'font-normal text-[#F04A00]' },
-    { text: 'that convert.', className: 'font-normal text-primary' },
+    { text: 'that convert.', className: 'font-normal text-black' },
   ];
 
   return (
     <section className="relative z-10 bg-transparent py-24 px-4 md:px-8" id="our-story">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-[#101010] rounded-3xl p-8 md:p-16 text-center">
+        <div className="bg-[#F5F5EE] rounded-3xl p-8 md:p-16 text-center border border-black/15">
 
           {/* Label */}
-          <span className="text-primary text-[10px] sm:text-xs tracking-widest uppercase block mb-8">
+          <span className="text-black/60 text-[10px] sm:text-xs tracking-widest uppercase block mb-8">
             Digital Excellence
           </span>
 
@@ -43,7 +44,7 @@ export default function AboutSection() {
           <div ref={containerRef} className="relative max-w-2xl mx-auto">
             <p
               className="text-xs sm:text-sm md:text-base"
-              style={{ color: '#DEDBC8', lineHeight: 1.7 }}
+              style={{ color: '#000000', lineHeight: 1.7 }}
             >
               {chars.map((char, i) => (
                 <AnimatedLetter

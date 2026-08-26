@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRight, ExternalLink, Mail, Menu, X } from 'lucide-react';
 import { FiLinkedin as Linkedin, FiInstagram as Instagram, FiCopy as Copy, FiCheck as Check } from 'react-icons/fi';
-import Dither from './ui/Dither';
-import buildingIntelligenceImg from '../assets/building-intelligence.png';
-import deliveringImpactImg from '../assets/delivering-impact.png';
+import GradientWaves from './ui/GradientWaves';
 
 const NAV_LINKS = [
   { label: 'Our Story', href: '#our-story' },
@@ -51,33 +49,44 @@ export default function HeroSection({ onSubscribe }) {
   }, [emailPopup]);
 
   return (
-    <section className="min-h-screen overflow-hidden relative z-10 flex flex-col bg-transparent" id="home">
+    <section className="min-h-screen overflow-hidden relative z-10 flex flex-col bg-[#F5F5EE]" id="home">
 
-      {/* ── Background dither shader ──────────────────────────── */}
+      {/* ── Background waves shader ──────────────────────────── */}
       <div className="absolute inset-0 w-full h-full">
-        <Dither
-          waveColor={[0.9411764705882353, 0.2901960784313726, 0]}
-          disableAnimation={false}
-          enableMouseInteraction
-          mouseRadius={1}
-          colorNum={4}
-          pixelSize={2}
-          waveAmplitude={0.3}
-          waveFrequency={3}
-          waveSpeed={0.05}
+        <GradientWaves
+          horizonColor="#ff6800"
+          waveColor="#f57319"
+          crestColor="#F04A00"
+          speed={0.4}
+          amplitude={2.5}
+          waveScale={0.6}
+          waveRatio={0.9}
+          swell={35}
+          turbulence={20}
+          tilt={1.11}
+          zoom={1}
+          height={5.5}
+          fogDepth={23}
+          detail="medium"
+          brightness={1}
+          opacity={1}
+          grain
+          grainIntensity={0.05}
+          mouseInteraction
+          parallaxStrength={0.5}
         />
       </div>
 
       {/* ── Navbar ───────────────────────────────────────────── */}
       <div className="relative z-20 px-4 sm:px-6 py-6">
-        <div className="liquid-glass rounded-full max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+        <div className="bg-white/40 border border-black/10 backdrop-blur-md rounded-full max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between shadow-sm">
 
           {/* Left: brand + nav links */}
           <div className="flex items-center">
             <img src="/logo.jpeg" alt="Strenovix Logo" className="w-[22px] h-[22px] object-cover rounded-md flex-shrink-0" />
             <span
-              className="text-white font-semibold text-base sm:text-lg ml-2"
-              style={{ fontFamily: "'Instrument Serif', serif" }}
+              className="text-black font-extrabold text-base sm:text-lg ml-2 font-migra"
+              style={{ fontFamily: "'Migra', serif" }}
             >
               Strenovix
             </span>
@@ -86,7 +95,7 @@ export default function HeroSection({ onSubscribe }) {
                 <a
                   key={label}
                   href={href}
-                  className="text-white/80 hover:text-white text-sm font-medium transition-colors duration-200"
+                  className="text-black/70 hover:text-black text-sm font-medium transition-colors duration-200"
                 >
                   {label}
                 </a>
@@ -94,24 +103,18 @@ export default function HeroSection({ onSubscribe }) {
             </div>
           </div>
 
-          {/* Right: CTA buttons */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          {/* Right: CTA button + Mobile Menu Toggle */}
+          <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className="hidden sm:block text-white text-sm font-medium hover:text-white/70 transition-colors"
-            >
-              Get in touch
-            </a>
-            <a
-              href="#contact"
-              className="liquid-glass rounded-full px-4 sm:px-6 py-2 text-white text-xs sm:text-sm font-medium hover:bg-white/5 transition-colors whitespace-nowrap"
+              className="hidden md:inline-flex items-center gap-2 bg-black hover:bg-black/90 text-[#F5F5EE] rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-200"
             >
               Start a Project
             </a>
             {/* Hamburger button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-white/80 hover:text-white p-1.5 hover:bg-white/5 rounded-full transition-colors flex items-center justify-center"
+              className="md:hidden text-black/70 hover:text-black p-1.5 hover:bg-black/[0.03] rounded-full transition-colors flex items-center justify-center"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -122,22 +125,22 @@ export default function HeroSection({ onSubscribe }) {
 
         {/* Mobile dropdown menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden max-w-5xl mx-auto mt-2 px-4 py-3 liquid-glass rounded-2xl border border-white/[0.08] shadow-lg flex flex-col gap-1 relative z-50 animate-fade-in">
+          <div className="md:hidden max-w-5xl mx-auto mt-2 px-4 py-3 bg-white/70 border border-black/10 backdrop-blur-md rounded-2xl shadow-lg flex flex-col gap-1 relative z-50 animate-fade-in">
             {NAV_LINKS.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-white/80 hover:text-white text-sm font-medium py-2 px-3 hover:bg-white/5 rounded-lg transition-all duration-200"
+                className="text-black/70 hover:text-black text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/[0.03] transition-colors"
               >
                 {label}
               </a>
             ))}
-            <hr className="border-white/10 my-1" />
+            <hr className="border-black/10 my-1" />
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-white/80 hover:text-white text-sm font-medium py-2 px-3 hover:bg-white/5 rounded-lg transition-all duration-200"
+              className="text-black/70 hover:text-black text-sm font-medium py-2 px-3 rounded-lg hover:bg-black/[0.03] transition-colors"
             >
               Get in touch
             </a>
@@ -146,35 +149,46 @@ export default function HeroSection({ onSubscribe }) {
       </div>
 
       {/* ── Hero content ─────────────────────────────────────── */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[10%]">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[8%] md:-translate-y-[2%]">
 
-        {/* Giant heading images */}
-        <img
-          src={buildingIntelligenceImg}
-          alt="Building Intelligence"
-          className="w-full max-w-6xl h-auto mb-1 pointer-events-none select-none px-4"
-        />
-        <img
-          src={deliveringImpactImg}
-          alt="Delivering Impact"
-          className="w-full max-w-4xl h-auto -mt-4 sm:-mt-6 mb-8 pointer-events-none select-none px-4"
-        />
+        {/* Giant heading animated text */}
+        <div className="flex flex-col items-center justify-center gap-y-8 md:gap-y-4 mb-8 w-full max-w-6xl px-4">
+          {/* Row 1: Building Intelligence */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-x-6 gap-y-4 w-full">
+            <span className="text-[clamp(2.8rem,7.5vw,6.5rem)] font-normal tracking-tight text-black leading-none" style={{ fontFamily: 'Regave' }}>
+              Building
+            </span>
+            <span className="text-[clamp(1.8rem,4.5vw,4rem)] tracking-wide text-[#F04A00] leading-none" style={{ fontFamily: 'Sanstara' }}>
+              Intelligence
+            </span>
+          </div>
+
+          {/* Row 2: Delivering Impact */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-x-6 gap-y-4 w-full">
+            <span className="text-[clamp(2.8rem,7.5vw,6.5rem)] font-normal tracking-tight text-black leading-none" style={{ fontFamily: 'Regave' }}>
+              Delivering
+            </span>
+            <span className="text-[clamp(1.8rem,4.5vw,4rem)] tracking-wide text-[#F04A00] leading-none" style={{ fontFamily: 'Sanstara' }}>
+              Impact
+            </span>
+          </div>
+        </div>
 
         {/* Email / newsletter input */}
         <div className="max-w-xl w-full mb-6">
-          <div className="liquid-glass rounded-full pl-5 sm:pl-6 pr-2 py-2 flex items-center gap-3">
+          <div className="bg-white/40 border border-black/10 backdrop-blur-md rounded-full pl-5 sm:pl-6 pr-2 py-2 flex items-center gap-3 shadow-sm">
             <input
               type="email"
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 bg-transparent text-white placeholder:text-white/40 text-sm outline-none min-w-0"
+              className="flex-1 bg-transparent text-black placeholder:text-black/40 text-sm outline-none min-w-0"
               style={{ fontFamily: 'inherit', border: 'none' }}
             />
             <button
               onClick={handleSubscribe}
-              className="bg-white rounded-full p-2.5 sm:p-3 text-black hover:bg-white/90 transition-colors flex-shrink-0 flex items-center justify-center"
+              className="bg-black rounded-full p-2.5 sm:p-3 text-[#F5F5EE] hover:bg-black/90 transition-colors flex-shrink-0 flex items-center justify-center"
               aria-label="Subscribe"
             >
               <ArrowRight size={18} />
@@ -183,8 +197,8 @@ export default function HeroSection({ onSubscribe }) {
         </div>
 
         {/* Subtitle */}
-        <p className="text-white/60 text-xs sm:text-sm leading-relaxed px-4 max-w-sm sm:max-w-md mb-8">
-          Stay updated with the latest from Strenovix. Get insights, project launches,
+        <p className="text-black/60 text-xs sm:text-sm leading-relaxed px-4 max-w-sm sm:max-w-md mb-8">
+          Stay updated with the latest from <span className="font-migra font-extrabold">Strenovix</span>. Get insights, project launches,
           and behind-the-scenes on the digital products we craft.
         </p>
 
@@ -193,63 +207,64 @@ export default function HeroSection({ onSubscribe }) {
           href="https://www.instagram.com/strenovix?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=="
           target="_blank"
           rel="noopener noreferrer"
+          className="mb-8 inline-block"
         >
-          <button className="liquid-glass rounded-full px-6 sm:px-8 py-2.5 sm:py-3 text-white text-sm font-medium hover:bg-white/5 transition-colors">
+          <button className="bg-white/40 border border-black/10 rounded-full px-6 sm:px-8 py-2.5 sm:py-3 text-black text-sm font-medium hover:bg-black/[0.03] transition-colors">
             Our Manifesto
           </button>
         </a>
 
-      </div>
+        {/* ── Social icon row ───────────────────────────────────── */}
+        <div className="flex justify-center gap-3 sm:gap-4">
+          <button
+            onClick={() => setEmailPopup(true)}
+            className="bg-white/40 border border-black/10 text-black/70 hover:text-black hover:bg-black/[0.03] rounded-full p-3 sm:p-4 transition-all flex items-center justify-center"
+            aria-label="Email"
+          >
+            <Mail size={18} />
+          </button>
+          <a
+            href="https://www.linkedin.com/in/strenovix-%E2%80%8E-31792042a/?skipRedirect=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white/40 border border-black/10 text-black/70 hover:text-black hover:bg-black/[0.03] rounded-full p-3 sm:p-4 transition-all flex items-center justify-center"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={18} />
+          </a>
+          <a
+            href="https://www.instagram.com/strenovix?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white/40 border border-black/10 text-black/70 hover:text-black hover:bg-black/[0.03] rounded-full p-3 sm:p-4 transition-all flex items-center justify-center"
+            aria-label="Instagram"
+          >
+            <Instagram size={18} />
+          </a>
+        </div>
 
-      {/* ── Social icon row ───────────────────────────────────── */}
-      <div className="relative z-10 flex justify-center gap-3 sm:gap-4 pb-10 sm:pb-12">
-        <button
-          onClick={() => setEmailPopup(true)}
-          className="liquid-glass rounded-full p-3 sm:p-4 text-white/70 hover:text-white hover:bg-white/5 transition-all"
-          aria-label="Email"
-        >
-          <Mail size={18} />
-        </button>
-        <a
-          href="https://www.linkedin.com/in/strenovix-%E2%80%8E-31792042a/?skipRedirect=true"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="liquid-glass rounded-full p-3 sm:p-4 text-white/70 hover:text-white hover:bg-white/5 transition-all flex items-center justify-center"
-          aria-label="LinkedIn"
-        >
-          <Linkedin size={18} />
-        </a>
-        <a
-          href="https://www.instagram.com/strenovix?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw=="
-          target="_blank"
-          rel="noopener noreferrer"
-          className="liquid-glass rounded-full p-3 sm:p-4 text-white/70 hover:text-white hover:bg-white/5 transition-all flex items-center justify-center"
-          aria-label="Instagram"
-        >
-          <Instagram size={18} />
-        </a>
       </div>
 
       {/* ── Email Popup Modal ────────────────────────────────── */}
       {emailPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-          <div className="liquid-glass rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center relative border border-white/[0.08] shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
+          <div className="bg-[#F5F5EE] border border-black/15 rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center relative shadow-2xl">
             <button
               onClick={() => setEmailPopup(false)}
-              className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors text-sm"
+              className="absolute top-4 right-4 text-black/50 hover:text-black transition-colors text-sm"
               aria-label="Close"
             >
               ✕
             </button>
-            <Mail size={32} className="text-primary mx-auto mb-4" />
-            <h3 className="text-white font-medium text-lg mb-2">Our Email</h3>
-            <p className="text-white/80 font-mono text-sm mb-6 select-all bg-white/5 rounded-lg py-2 px-3 border border-white/5">
+            <Mail size={32} style={{ color: '#000000' }} className="mx-auto mb-4" />
+            <h3 className="text-black font-medium text-lg mb-2">Our Email</h3>
+            <p className="text-black/80 font-mono text-sm mb-6 select-all bg-black/[0.03] rounded-lg py-2 px-3 border border-black/5">
               strenovix@gmail.com
             </p>
             <div className="flex flex-col gap-3">
               <button
                 onClick={handleCopy}
-                className="w-full bg-white text-black font-medium text-sm py-3 rounded-full hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-black text-[#F5F5EE] font-medium text-sm py-3 rounded-full hover:bg-black/90 transition-colors flex items-center justify-center gap-2"
               >
                 {copied ? (
                   <>
@@ -265,7 +280,7 @@ export default function HeroSection({ onSubscribe }) {
               </button>
               <a
                 href="mailto:strenovix@gmail.com"
-                className="w-full liquid-glass border border-white/10 text-white font-medium text-sm py-3 rounded-full hover:bg-white/5 transition-colors flex items-center justify-center gap-2"
+                className="w-full bg-white/40 border border-black/10 text-black font-medium text-sm py-3 rounded-full hover:bg-black/[0.03] transition-colors flex items-center justify-center gap-2"
               >
                 Open Mail App
               </a>

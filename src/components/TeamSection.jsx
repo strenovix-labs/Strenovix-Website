@@ -20,10 +20,10 @@ function TeamCard({ member, index }) {
       initial={{ y: 30, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
       transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-[#101010] rounded-2xl p-6 md:p-7 group"
+      className="bg-[#F5F5EE] rounded-2xl p-6 md:p-7 group border border-black/15"
     >
       {/* Photo */}
-      <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-5 bg-[#181818]">
+      <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-5 bg-[#F5F5EE]">
         <img
           src={member.photo}
           alt={member.name || 'Team member'}
@@ -31,10 +31,10 @@ function TeamCard({ member, index }) {
         />
       </div>
 
-      <h3 className="text-primary font-medium text-base mb-1 min-h-[1.25rem]">
+      <h3 className="text-black font-medium text-base mb-1 min-h-[1.25rem]">
         {member.name || <span className="text-gray-600">Name coming soon</span>}
       </h3>
-      <p className="text-gray-400 text-xs min-h-[1rem]">
+      <p className="text-black/70 text-xs min-h-[1rem]">
         {member.role || <span className="text-gray-700">Role coming soon</span>}
       </p>
     </motion.div>
@@ -46,7 +46,7 @@ export default function TeamSection() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="bg-black py-24 px-4 md:px-8" id="team">
+    <section className="bg-transparent py-24 px-4 md:px-8" id="team">
       <div className="max-w-7xl mx-auto">
 
         <motion.div
@@ -56,12 +56,12 @@ export default function TeamSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16"
         >
-          <span className="text-primary text-[10px] sm:text-xs tracking-widest uppercase block mb-4">
+          <span className="text-black/60 text-[10px] sm:text-xs tracking-widest uppercase block mb-4">
             The Collective
           </span>
           <h2
             className="font-medium leading-none tracking-[-0.04em]"
-            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#E1E0CC' }}
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#000000' }}
           >
             Minds behind<br />the magic.
           </h2>

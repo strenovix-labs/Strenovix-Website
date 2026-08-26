@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Tempting';
+  src: url('/fonts/Tempting - PERSONAL USE ONLY.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GlitchGoblin';
+  src: url('/fonts/GlitchGoblin.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sanstara';
+  src: url('/fonts/Sanstara Demo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Regave';
+  src: url('/fonts/Regave-DemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Migra';
+  src: url('/fonts/migra-extrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
 @layer components {
   /* ── Liquid glass ───────────────────────────────────────── */
   .liquid-glass {
@@ -51,8 +86,8 @@ html { scroll-behavior: smooth; }
 
 body {
   overflow-x: hidden;
-  background: #000000;
-  color: #E1E0CC;
+  background: #F5F5EE;
+  color: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

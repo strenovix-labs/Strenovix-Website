@@ -11,7 +11,7 @@ const FEATURES = [
     number: '01',
     title: 'App Development.',
     route: 'services/app-dev',
-    icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171918_4a5edc79-d78f-4637-ac8b-53c43c220606.png&w=1280&q=85',
+    icon: '/services/app-dev.png',
     items: [
       'Cross-platform iOS & Android builds',
       'Performance-optimised React Native',
@@ -23,7 +23,7 @@ const FEATURES = [
     number: '02',
     title: 'Web Engineering.',
     route: 'services/web-dev',
-    icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171741_ed9845ab-f5b2-4018-8ce7-07cc01823522.png&w=1280&q=85',
+    icon: '/services/web-dev.png',
     items: [
       'Cinematic, animation-rich front-ends',
       'Scalable back-end & API architecture',
@@ -32,9 +32,9 @@ const FEATURES = [
   },
   {
     number: '03',
-    title: 'ML / AI Solutions.',
+    title: 'AI / ML Solutions.',
     route: 'services/ml',
-    icon: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171809_f56666dc-c099-4778-ad82-9ad4f209567b.png&w=1280&q=85',
+    icon: '/services/ml-ai.png',
     items: [
       'Custom model training & fine-tuning',
       'Intelligent automation pipelines',
@@ -51,7 +51,7 @@ function FeatureCard({ feature, index }) {
   return (
     <motion.div
       ref={ref}
-      className="bg-[#212121] rounded-2xl p-6 flex flex-col justify-between h-full"
+      className="bg-[#F5F5EE] rounded-2xl p-6 flex flex-col justify-between h-full border border-black/15"
       initial={{ scale: 0.95, opacity: 0 }}
       animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
       transition={{ delay: (index + 1) * 0.15, duration: 0.6, ease: CARD_EASE }}
@@ -66,8 +66,8 @@ function FeatureCard({ feature, index }) {
 
         {/* Number + title */}
         <div className="flex items-start gap-2 mb-5">
-          <span className="text-gray-500 text-[10px] mt-1">{feature.number}</span>
-          <h3 className="text-primary font-medium text-base sm:text-lg leading-tight">
+          <span className="text-black/50 text-[10px] mt-1">{feature.number}</span>
+          <h3 className="text-black font-medium text-base sm:text-lg leading-tight">
             {feature.title}
           </h3>
         </div>
@@ -76,8 +76,8 @@ function FeatureCard({ feature, index }) {
         <ul className="space-y-3">
           {feature.items.map((item, i) => (
             <li key={i} className="flex items-start gap-2">
-              <Check size={14} className="text-primary mt-0.5 flex-shrink-0" />
-              <span className="text-gray-400 text-xs sm:text-sm leading-snug">{item}</span>
+              <Check size={14} className="text-[#F04A00] mt-0.5 flex-shrink-0" />
+              <span className="text-black/70 text-xs sm:text-sm leading-snug">{item}</span>
             </li>
           ))}
         </ul>
@@ -90,7 +90,7 @@ function FeatureCard({ feature, index }) {
           e.preventDefault();
           navigate(feature.route);
         }}
-        className="inline-flex items-center gap-1 text-primary text-xs sm:text-sm mt-8 group cursor-pointer"
+        className="inline-flex items-center gap-1 text-black text-xs sm:text-sm mt-8 group cursor-pointer"
       >
         <span>Learn more</span>
         <ArrowRight
@@ -128,7 +128,7 @@ function VideoCard() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       <p
         className="absolute bottom-5 left-5 font-medium text-sm sm:text-base"
-        style={{ color: '#E1E0CC' }}
+        style={{ color: '#ffffff' }}
       >
         Your creative canvas.
       </p>
@@ -140,7 +140,7 @@ export default function FeaturesSection() {
   const headerSegments = [
     {
       text: 'Studio-grade workflows for visionary builders.',
-      className: 'text-primary',
+      className: 'text-black',
     },
     {
       text: 'Built for pure vision. Powered by technology.',

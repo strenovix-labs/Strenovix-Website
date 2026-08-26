@@ -70,16 +70,16 @@ export default function ContactSection({ prefilledEmail }) {
             animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-primary text-[10px] sm:text-xs tracking-widest uppercase block mb-4">
+            <span className="text-black/60 text-[10px] sm:text-xs tracking-widest uppercase block mb-4">
               Get In Touch
             </span>
             <h2
               className="font-medium leading-none tracking-[-0.04em] mb-8"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#E1E0CC' }}
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#000000' }}
             >
               Ready to build<br /><span className="font-serif italic text-[#F04A00]">something great?</span>
             </h2>
-            <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-sm">
+            <p className="text-black/70 text-sm sm:text-base leading-relaxed max-w-sm">
               Drop us a message and we'll get back to you within 24 hours. We love talking
               about ambitious projects — big or small.
             </p>
@@ -87,7 +87,7 @@ export default function ContactSection({ prefilledEmail }) {
             <div className="mt-10 space-y-4">
               <div>
                 <p className="text-gray-600 text-[10px] uppercase tracking-widest mb-1">Email</p>
-                <a href="mailto:strenovix@gmail.com" className="text-primary text-sm hover:text-primary/70 transition-colors">
+                <a href="mailto:strenovix@gmail.com" className="text-black text-sm hover:text-[#F04A00] transition-colors">
                   strenovix@gmail.com
                 </a>
               </div>
@@ -101,9 +101,9 @@ export default function ContactSection({ prefilledEmail }) {
             transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             {status === 'sent' ? (
-              <div className="bg-[#101010] rounded-2xl p-10 text-center">
-                <p className="text-primary text-lg font-medium mb-2">Thanks! Your message has been sent successfully.</p>
-                <p className="text-gray-400 text-sm">We'll be in touch shortly.</p>
+              <div className="bg-[#F5F5EE] rounded-2xl p-10 text-center border border-black/15">
+                <p className="text-black text-lg font-medium mb-2">Thanks! Your message has been sent successfully.</p>
+                <p className="text-black/70 text-sm">We'll be in touch shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -126,7 +126,7 @@ export default function ContactSection({ prefilledEmail }) {
                       required
                       value={formState[field.key]}
                       onChange={(e) => setFormState((s) => ({ ...s, [field.key]: e.target.value }))}
-                      className="w-full bg-[#101010] border border-white/[0.06] rounded-xl px-5 py-4 text-primary text-sm placeholder-gray-600 outline-none focus:border-primary/30 transition-colors"
+                      className="w-full bg-[#F5F5EE] border border-black/[0.08] rounded-xl px-5 py-4 text-black text-sm placeholder-gray-400 outline-none focus:border-primary/30 transition-colors"
                     />
                   </div>
                 ))}
@@ -136,18 +136,18 @@ export default function ContactSection({ prefilledEmail }) {
                   required
                   value={formState.projectDetails}
                   onChange={(e) => setFormState((s) => ({ ...s, projectDetails: e.target.value }))}
-                  className="w-full bg-[#101010] border border-white/[0.06] rounded-xl px-5 py-4 text-primary text-sm placeholder-gray-600 outline-none focus:border-primary/30 transition-colors resize-none"
+                  className="w-full bg-[#F5F5EE] border border-black/[0.08] rounded-xl px-5 py-4 text-black text-sm placeholder-gray-400 outline-none focus:border-primary/30 transition-colors resize-none"
                 />
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="group inline-flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-5 pr-1 py-1 transition-all duration-300 w-fit disabled:opacity-60"
+                  className="group inline-flex items-center gap-2 hover:gap-3 bg-black rounded-full pl-5 pr-1 py-1 transition-all duration-300 w-fit disabled:opacity-60"
                 >
-                  <span className="font-medium text-sm text-black">
+                  <span className="font-medium text-sm text-[#F5F5EE]">
                     {status === 'sending' ? 'Sending…' : 'Send message'}
                   </span>
-                  <span className="bg-black rounded-full w-9 h-9 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
-                    <ArrowRight size={15} className="text-primary" />
+                  <span className="bg-[#F04A00] rounded-full w-9 h-9 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                    <ArrowRight size={15} className="text-[#F5F5EE]" />
                   </span>
                 </button>
                 {status === 'error' && (

@@ -131,7 +131,7 @@ function FlagshipCard() {
       initial={{ y: 30, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="group rounded-3xl border border-white/[0.08] bg-white/[0.02] overflow-hidden mb-8 hover:border-white/[0.16] transition-colors duration-300"
+      className="group rounded-3xl border border-black/15 bg-[#F5F5EE] overflow-hidden mb-8 hover:border-black/25 transition-colors duration-300"
     >
       <div className="grid md:grid-cols-2">
         {/* Image side */}
@@ -144,27 +144,27 @@ function FlagshipCard() {
           <img
             src={FLAGSHIP.image2}
             alt=""
-            className="hidden md:block absolute bottom-4 right-4 w-[38%] rounded-xl shadow-2xl border border-white/10 object-cover"
+            className="hidden md:block absolute bottom-4 right-4 w-[38%] rounded-xl shadow-2xl border border-black/10 object-cover"
           />
         </div>
 
         {/* Content side */}
         <div className="p-8 md:p-10 flex flex-col justify-center">
-          <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-amber-400 mb-4 w-fit border border-amber-400/30 rounded-full px-3 py-1">
+          <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-[#F04A00] mb-4 w-fit border border-[#F04A00]/30 rounded-full px-3 py-1">
             Flagship Project
           </span>
-          <h3 className="text-primary font-medium text-3xl md:text-4xl leading-tight mb-2">
+          <h3 className="text-black font-medium text-3xl md:text-4xl leading-tight mb-2">
             {FLAGSHIP.title}
           </h3>
-          <p className="text-gray-400 text-sm mb-4">{FLAGSHIP.tagline}</p>
-          <p className="text-gray-500 text-[11px] mb-4 uppercase tracking-wide">{FLAGSHIP.category}</p>
-          <p className="text-gray-400 text-sm leading-relaxed mb-6">{FLAGSHIP.description}</p>
+          <p className="text-black/70 text-sm mb-4">{FLAGSHIP.tagline}</p>
+          <p className="text-black/60 text-[11px] mb-4 uppercase tracking-wide">{FLAGSHIP.category}</p>
+          <p className="text-black/70 text-sm leading-relaxed mb-6">{FLAGSHIP.description}</p>
 
           <div className="grid grid-cols-2 gap-4 mb-6">
             {FLAGSHIP.stats.map((s) => (
               <div key={s.label}>
-                <div className="text-primary text-xl font-semibold">{s.value}</div>
-                <div className="text-gray-500 text-[11px]">{s.label}</div>
+                <div className="text-black text-xl font-semibold">{s.value}</div>
+                <div className="text-black/60 text-[11px]">{s.label}</div>
               </div>
             ))}
           </div>
@@ -173,7 +173,7 @@ function FlagshipCard() {
             {FLAGSHIP.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] text-gray-400 border border-white/[0.1] rounded-full px-3 py-1"
+                className="text-[10px] text-black/70 border border-black/[0.15] rounded-full px-3 py-1"
               >
                 {tag}
               </span>
@@ -197,20 +197,21 @@ function ProjectRow({ project, index, onOpen }) {
       initial={{ y: 30, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
       transition={{ delay: index * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="group w-full text-left border-t border-white/[0.06] py-6 md:py-8 flex items-center justify-between cursor-pointer hover:bg-white/[0.02] transition-colors duration-300 px-2 rounded-lg"
+      className="group w-full text-left py-6 md:py-8 flex items-center justify-between cursor-pointer hover:bg-black/[0.02] transition-colors duration-300 px-2 rounded-lg"
+      style={{ borderTop: '1px solid rgba(0, 0, 0, 0.15)' }}
     >
       <div className="flex items-center gap-6 md:gap-10 min-w-0">
-        <span className="text-gray-600 text-xs hidden sm:block">{project.id}</span>
+        <span className="text-black/50 text-xs hidden sm:block">{project.id}</span>
         {project.image && (
-          <div className="hidden sm:block w-16 h-12 md:w-20 md:h-14 rounded-lg overflow-hidden flex-shrink-0 border border-white/[0.08]">
+          <div className="hidden sm:block w-16 h-12 md:w-20 md:h-14 rounded-lg overflow-hidden flex-shrink-0 border border-black/15">
             <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
           </div>
         )}
         <div className="min-w-0">
-          <h3 className="text-primary font-medium text-lg sm:text-xl md:text-2xl leading-tight group-hover:translate-x-1 transition-transform duration-300 truncate">
+          <h3 className="text-black font-medium text-lg sm:text-xl md:text-2xl leading-tight group-hover:translate-x-1 transition-transform duration-300 truncate">
             {project.title}
           </h3>
-          <p className="text-gray-500 text-xs sm:text-sm mt-1 truncate">{project.category}</p>
+          <p className="text-black/60 text-xs sm:text-sm mt-1 truncate">{project.category}</p>
         </div>
       </div>
 
@@ -219,15 +220,15 @@ function ProjectRow({ project, index, onOpen }) {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] text-gray-500 border border-white/[0.08] rounded-full px-3 py-1"
+              className="text-[10px] text-black/60 border border-black/[0.1] rounded-full px-3 py-1"
             >
               {tag}
             </span>
           ))}
         </div>
-        <span className="text-gray-600 text-xs hidden sm:block">{project.year}</span>
-        <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <ArrowRight size={13} className="text-primary -rotate-45" />
+        <span className="text-black/50 text-xs hidden sm:block">{project.year}</span>
+        <div className="w-8 h-8 rounded-full border border-black/15 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <ArrowRight size={13} className="text-black -rotate-45" />
         </div>
       </div>
     </motion.button>
@@ -344,7 +345,7 @@ function ProjectModal({ project, onClose }) {
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 16, opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="relative bg-[#0c0c0c] border border-white/[0.08] rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+            className="relative bg-[#F5F5EE] border border-black/15 rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto"
             data-lenis-prevent
             style={{ overscrollBehavior: 'contain' }}
           >
@@ -352,7 +353,7 @@ function ProjectModal({ project, onClose }) {
               type="button"
               onClick={onClose}
               aria-label="Close"
-              className="absolute top-5 right-5 z-10 w-9 h-9 rounded-full border border-white/10 bg-black/40 flex items-center justify-center text-gray-400 hover:text-primary hover:border-white/30 transition-colors"
+              className="absolute top-5 right-5 z-10 w-9 h-9 rounded-full border border-black/10 bg-white/40 flex items-center justify-center text-black hover:text-[#F04A00] hover:border-black/30 transition-colors"
             >
               <X size={16} />
             </button>
@@ -360,25 +361,25 @@ function ProjectModal({ project, onClose }) {
             {project.images && project.images.length > 0 ? (
               <ImageCarousel images={project.images} alt={project.title} />
             ) : project.image ? (
-              <div className="w-full aspect-[16/9] overflow-hidden border-b border-white/[0.06]">
+              <div className="w-full aspect-[16/9] overflow-hidden border-b border-black/[0.06]">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
               </div>
             ) : null}
 
             <div className="p-8 md:p-10">
-              <span className="text-gray-600 text-xs">{project.id} · {project.year}</span>
-              <h3 className="text-primary font-medium text-2xl md:text-3xl leading-tight mt-2 mb-2">
+              <span className="text-black/50 text-xs">{project.id} · {project.year}</span>
+              <h3 className="text-black font-medium text-2xl md:text-3xl leading-tight mt-2 mb-2">
                 {project.title}
               </h3>
-              <p className="text-gray-500 text-xs uppercase tracking-wide mb-6">{project.category}</p>
+              <p className="text-black/60 text-xs uppercase tracking-wide mb-6">{project.category}</p>
 
-              <p className="text-gray-400 text-sm leading-relaxed mb-8">{project.description}</p>
+              <p className="text-black/70 text-sm leading-relaxed mb-8">{project.description}</p>
 
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] text-gray-400 border border-white/[0.1] rounded-full px-3 py-1"
+                    className="text-[10px] text-black/70 border border-black/[0.1] rounded-full px-3 py-1"
                   >
                     {tag}
                   </span>
@@ -408,12 +409,12 @@ export default function WorkSection() {
             animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-primary text-[10px] sm:text-xs tracking-widest uppercase block mb-4">
+            <span className="text-black/60 text-[10px] sm:text-xs tracking-widest uppercase block mb-4">
               Selected Work
             </span>
             <h2
               className="font-medium leading-none tracking-[-0.04em]"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#E1E0CC' }}
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', color: '#000000' }}
             >
               Projects that<br /><span className="font-serif italic text-[#F04A00]">define us.</span>
             </h2>
@@ -421,7 +422,7 @@ export default function WorkSection() {
 
           <motion.a
             href="#contact"
-            className="hidden md:inline-flex items-center gap-2 text-primary/70 text-sm hover:text-primary transition-colors"
+            className="hidden md:inline-flex items-center gap-2 text-black/70 text-sm hover:text-[#F04A00] transition-colors"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
@@ -437,7 +438,7 @@ export default function WorkSection() {
           {PROJECTS.map((project, i) => (
             <ProjectRow key={project.id} project={project} index={i} onOpen={setSelectedProject} />
           ))}
-          <div className="border-t border-white/[0.06]" />
+          <div className="border-t border-black/15" />
         </div>
 
       </div>

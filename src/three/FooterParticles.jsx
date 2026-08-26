@@ -17,7 +17,7 @@ function sampleTextPoints() {
   canvas.height = SAMPLE_H;
   const ctx = canvas.getContext('2d');
   ctx.fillStyle = '#fff';
-  ctx.font = "bold 56px 'Anton', sans-serif";
+  ctx.font = "800 56px 'Migra', serif";
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillText(TEXT, SAMPLE_W / 2, SAMPLE_H / 2);
@@ -111,10 +111,10 @@ export default function FooterParticles() {
       </bufferGeometry>
       <pointsMaterial
         size={0.045}
-        color="#DEDBC8"
+        color="#000000"
         transparent
         opacity={0.8}
-        blending={THREE.AdditiveBlending}
+        blending={THREE.NormalBlending}
         depthWrite={false}
       />
     </points>

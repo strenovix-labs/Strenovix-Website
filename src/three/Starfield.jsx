@@ -65,10 +65,10 @@ export default function Starfield({ capability = 'full' }) {
       </bufferGeometry>
       <pointsMaterial
         size={0.01}
-        color="#ffffff"
+        color="#000000"
         transparent
-        opacity={0.2}
-        blending={THREE.AdditiveBlending}
+        opacity={0.15}
+        blending={THREE.NormalBlending}
         depthWrite={false}
       />
     </points>

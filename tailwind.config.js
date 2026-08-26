@@ -4,10 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#DEDBC8',
+        primary: '#000000',
       },
       fontFamily: {
         serif: ['"Instrument Serif"', 'serif'],
+        migra: ['"Migra"', 'serif'],
       },
     },
   },

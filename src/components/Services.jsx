@@ -24,13 +24,6 @@ const services = [
     desc: 'Custom AI and machine learning solutions that transform raw data into intelligent insights — your competitive edge.',
     tags: ['Python', 'TensorFlow', 'PyTorch', 'LLMs'],
   },
-  {
-    num: '04',
-    title: 'Digital Marketing',
-    route: 'services/marketing',
-    desc: 'Data-driven strategies that amplify your brand, grow your audience, and turn traffic into measurable revenue.',
-    tags: ['SEO', 'Paid Ads', 'Content', 'Analytics'],
-  },
 ];
 
 export default function Services() {
@@ -42,7 +35,7 @@ export default function Services() {
         <div className="services-head">
           <span className="section-label reveal">Services</span>
           <h2 className="section-heading reveal reveal-delay-1">
-            Our approach to success<br />is built on four pillars.
+            Our approach to success<br />is built on three pillars.
           </h2>
           <p className="services-sub reveal reveal-delay-2">
             Visually stunning, interactive products made to assert your digital dominance and captivate.

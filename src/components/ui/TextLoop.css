@@ -18,9 +18,13 @@
 .text-loop-text {
   user-select: none;
   will-change: transform;
+  font-family: inherit;
+  font-weight: inherit;
 }
 
 .text-loop-measure {
   visibility: hidden;
   pointer-events: none;
+  font-family: inherit;
+  font-weight: inherit;
 }

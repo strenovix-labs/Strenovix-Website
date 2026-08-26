@@ -1,35 +1,76 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import "./macbook-scroll.css";
 
 export function MacbookScroll({ title, badge, src, showGradient = true }) {
   const ref = useRef(null);
+  const screenRef = useRef(null);
+  const [scaleFactor, setScaleFactor] = useState(1);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end end"],
   });
 
-  // Lid: starts partially closed (-28deg) → opens fully (0deg) as user scrolls
-  const raw    = useTransform(scrollYProgress, [0, 0.6], [-28, 0]);
+  // iPad: starts facing downwards flat (-90deg) → stands upright (0deg) to show front as user scrolls
+  const raw    = useTransform(scrollYProgress, [0, 0.6], [-90, 0]);
   const rotate = useSpring(raw, { stiffness: 200, damping: 30 });
-  const scaleRaw = useTransform(scrollYProgress, [0, 0.35], [0.6, 1]);
+  const scaleRaw = useTransform(scrollYProgress, [0, 0.45], [0.5, 1.05]);
   const scale    = useSpring(scaleRaw, { stiffness: 200, damping: 30 });
   const opacity  = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+
+  useEffect(() => {
+    if (!screenRef.current) return;
+    const updateScale = () => {
+      const width = screenRef.current.offsetWidth;
+      // Target a standard tablet/desktop viewport width inside the iframe
+      const nativeWidth = 1024;
+      setScaleFactor(width / nativeWidth);
+    };
+
+    updateScale();
+
+    const observer = new ResizeObserver(() => {
+      updateScale();
+    });
+    observer.observe(screenRef.current);
+
+    window.addEventListener("resize", updateScale);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateScale);
+    };
+  }, []);
 
   return (
     <div ref={ref} className="mbs-scroll-zone">
       <div className="mbs-sticky">
         {title && <div className="mbs-title">{title}</div>}
 
-        <motion.div className="mbs-macbook" style={{ scale }}>
-          {/* ── Screen / Lid ── */}
+        <motion.div className="mbs-ipad" style={{ scale }}>
+          {/* ── iPad Screen / Body ── */}
           <div className="mbs-perspective">
-            <motion.div className="mbs-lid" style={{ rotateX: rotate }}>
+            <motion.div className="mbs-ipad-body" style={{ rotateX: rotate }}>
               {badge && <div className="mbs-badge-wrap">{badge}</div>}
-              <div className="mbs-screen">
+              <div className="mbs-screen" ref={screenRef}>
                 <motion.div className="mbs-screen-inner" style={{ opacity }}>
                   {src
-                    ? <img src={src} alt="screen" className="mbs-screen-img" />
+                    ? (src.startsWith('http') && !/\.(jpg|jpeg|png|webp|svg|gif)($|\?)/i.test(src) ? (
+                        <iframe 
+                          src={src} 
+                          title="live-site" 
+                          className="mbs-iframe-scaled"
+                          style={{
+                            width: '1024px',
+                            height: '640px',
+                            transform: `scale(${scaleFactor})`,
+                            transformOrigin: 'top left',
+                            background: '#F5F5EE'
+                          }}
+                        />
+                      ) : (
+                        <img src={src} alt="screen" className="mbs-screen-img" />
+                      ))
                     : <div className="mbs-screen-placeholder">
                         <div className="mbs-placeholder-grid">
                           {[...Array(6)].map((_, i) => <div key={i} className="mbs-placeholder-card" />)}
@@ -39,27 +80,13 @@ export function MacbookScroll({ title, badge, src, showGradient = true }) {
                 </motion.div>
                 {showGradient && <div className="mbs-screen-gradient" />}
               </div>
-              <div className="mbs-camera" />
-              {/* Lid frame */}
-              <div className="mbs-lid-frame" />
+              <div className="mbs-ipad-camera" />
+              <div className="mbs-ipad-home-button">
+                <div className="mbs-ipad-home-icon" />
+              </div>
+              <div className="mbs-ipad-bezel-frame" />
             </motion.div>
           </div>
-
-          {/* ── Base / Keyboard ── */}
-          <div className="mbs-base">
-            <div className="mbs-hinge" />
-            <div className="mbs-keyboard-area">
-              {[...Array(4)].map((_, r) => (
-                <div key={r} className="mbs-key-row">
-                  {[...Array(r === 3 ? 6 : 12)].map((_, k) => (
-                    <div key={k} className="mbs-key" />
-                  ))}
-                </div>
-              ))}
-            </div>
-            <div className="mbs-trackpad" />
-          </div>
-          <div className="mbs-foot-bar" />
         </motion.div>
       </div>
     </div>

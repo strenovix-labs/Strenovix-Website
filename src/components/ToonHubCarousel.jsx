@@ -161,7 +161,7 @@ export default function ToonHubCarousel() {
             fontFamily: "'Anton', sans-serif",
             fontSize: 'clamp(60px, 22vw, 300px)',
             fontWeight: 900, color: 'transparent',
-            WebkitTextStroke: '1px rgba(255,255,255,0.04)',
+            WebkitTextStroke: '1px rgba(0,0,0,0.25)',
             lineHeight: 1, textTransform: 'uppercase',
             letterSpacing: '-0.02em', whiteSpace: 'nowrap',
           }}>
@@ -176,7 +176,7 @@ export default function ToonHubCarousel() {
         }}>
           <span style={{
             fontSize: '0.65rem', fontWeight: 600, textTransform: 'uppercase',
-            color: 'rgba(222,219,200,0.4)', letterSpacing: '0.22em',
+            color: 'rgba(0,0,0,0.6)', letterSpacing: '0.22em',
             fontFamily: 'Inter, sans-serif',
           }}>
             The Collective
@@ -190,7 +190,7 @@ export default function ToonHubCarousel() {
         }}>
           <span style={{
             fontFamily: 'Inter, sans-serif', fontSize: '0.65rem',
-            color: 'rgba(222,219,200,0.28)', letterSpacing: '0.1em',
+            color: 'rgba(0,0,0,0.5)', letterSpacing: '0.1em',
           }}>
             {String(activeIndex + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
           </span>
@@ -251,16 +251,16 @@ export default function ToonHubCarousel() {
           <p style={{
             fontFamily: "'Instrument Serif', serif",
             fontSize: isMobile ? '1.35rem' : '1.75rem',
-            color: '#E1E0CC', letterSpacing: '-0.01em',
+            color: '#000000', letterSpacing: '-0.01em',
             marginBottom: '0.25rem',
-            textShadow: '0 2px 20px rgba(0,0,0,1)',
+            textShadow: 'none',
           }}>
             {isReal ? activeMember.name : '—'}
           </p>
           <p style={{
             fontFamily: 'Inter, sans-serif',
             fontSize: isMobile ? '0.7rem' : '0.8rem',
-            color: 'rgba(222,219,200,0.4)',
+            color: 'rgba(0,0,0,0.6)',
             letterSpacing: '0.18em', textTransform: 'uppercase',
           }}>
             {isReal ? activeMember.role : `${activeMember.role} · Coming Soon`}
@@ -277,9 +277,9 @@ export default function ToonHubCarousel() {
             fontFamily: 'Inter, sans-serif', fontWeight: 700,
             textTransform: 'uppercase', letterSpacing: '0.1em',
             fontSize: isMobile ? '0.6rem' : '0.68rem',
-            color: 'rgba(222,219,200,0.22)', marginBottom: '0.75rem',
+            color: 'rgba(0,0,0,0.4)', marginBottom: '0.75rem',
           }}>
-            Strenovix Collective
+            <span style={{ fontFamily: 'Migra, serif', fontWeight: 800 }}>Strenovix</span> Collective
           </p>
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             {[
@@ -294,20 +294,20 @@ export default function ToonHubCarousel() {
                   width: isMobile ? '2.2rem' : '2.6rem',
                   height: isMobile ? '2.2rem' : '2.6rem',
                   borderRadius: '50%', background: 'transparent',
-                  border: '1px solid rgba(222,219,200,0.14)',
-                  color: '#DEDBC8', cursor: 'pointer',
+                  border: '1px solid rgba(0,0,0,0.15)',
+                  color: '#000000', cursor: 'pointer',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'transform 150ms, background-color 150ms, border-color 150ms',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'scale(1.08)';
-                  e.currentTarget.style.backgroundColor = 'rgba(222,219,200,0.07)';
-                  e.currentTarget.style.borderColor = 'rgba(222,219,200,0.3)';
+                  e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.05)';
+                  e.currentTarget.style.borderColor = 'rgba(0,0,0,0.3)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'scale(1)';
                   e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.borderColor = 'rgba(222,219,200,0.14)';
+                  e.currentTarget.style.borderColor = 'rgba(0,0,0,0.15)';
                 }}
               >
                 {icon}
@@ -332,7 +332,7 @@ export default function ToonHubCarousel() {
                 width: i === activeIndex ? '1.4rem' : '0.28rem',
                 height: '0.28rem', borderRadius: '99px',
                 padding: 0, border: 'none', cursor: 'pointer',
-                background: i === activeIndex ? '#DEDBC8' : 'rgba(222,219,200,0.22)',
+                background: i === activeIndex ? '#000000' : 'rgba(0,0,0,0.15)',
                 transition: 'width 400ms cubic-bezier(0.4,0,0.2,1), background 400ms',
               }}
             />
@@ -351,13 +351,13 @@ export default function ToonHubCarousel() {
               display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
               fontFamily: "'Anton', sans-serif",
               fontSize: 'clamp(13px, 2.2vw, 34px)',
-              color: 'rgba(222,219,200,0.45)',
+              color: 'rgba(0,0,0,0.6)',
               letterSpacing: '-0.02em', lineHeight: 1,
               textTransform: 'uppercase', textDecoration: 'none',
               transition: 'color 200ms',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#DEDBC8'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(222,219,200,0.45)'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#000000'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(0,0,0,0.6)'; }}
           >
             WORK WITH US
             <ArrowRight style={{

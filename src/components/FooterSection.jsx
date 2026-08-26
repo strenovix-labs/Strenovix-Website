@@ -40,7 +40,7 @@ export default function FooterSection() {
       {/* ── CTA section ─────────────────────────────────────── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-24 md:pt-32">
 
-        <div className="border-t border-white/[0.06] mb-16 md:mb-20" />
+        <div className="border-t border-black/[0.08] mb-16 md:mb-20" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12" ref={ref}>
 
@@ -51,10 +51,10 @@ export default function FooterSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease: EASE }}
-              className="inline-flex items-center gap-2 border border-white/[0.10] rounded-full px-4 py-2 mb-10"
+              className="inline-flex items-center gap-2 border border-black/[0.10] rounded-full px-4 py-2 mb-10"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-              <span className="text-[11px] text-gray-400 tracking-wide">
+              <span className="text-[11px] text-black/60 tracking-wide">
                 Available for new projects
               </span>
             </motion.div>
@@ -76,17 +76,17 @@ export default function FooterSection() {
             >
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-5 pr-1 py-1 transition-all duration-300"
+                className="group inline-flex items-center gap-2 hover:gap-3 bg-black rounded-full pl-5 pr-1 py-1 transition-all duration-300"
               >
-                <span className="font-medium text-sm text-black">Start a Project</span>
-                <span className="bg-black rounded-full w-9 h-9 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
-                  <ArrowRight size={15} className="text-primary" />
+                <span className="font-medium text-sm text-[#F5F5EE]">Start a Project</span>
+                <span className="bg-[#F04A00] rounded-full w-9 h-9 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+                  <ArrowRight size={15} className="text-[#F5F5EE]" />
                 </span>
               </a>
 
               <a
                 href="mailto:strenovix@gmail.com"
-                className="inline-flex items-center gap-1.5 text-gray-500 text-sm hover:text-primary transition-colors duration-200"
+                className="inline-flex items-center gap-1.5 text-black/60 text-sm hover:text-[#F04A00] transition-colors duration-200"
               >
                 strenovix@gmail.com
                 <ArrowUpRight size={13} />
@@ -110,7 +110,7 @@ export default function FooterSection() {
                   <li key={label}>
                     <a
                       href={href}
-                      className="text-gray-500 text-sm hover:text-primary transition-colors duration-200 leading-none"
+                      className="text-black/60 text-sm hover:text-[#F04A00] transition-colors duration-200 leading-none"
                     >
                       {label}
                     </a>
@@ -134,14 +134,14 @@ export default function FooterSection() {
                       href={href}
                       target={href.startsWith('http') ? '_blank' : undefined}
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-gray-500 text-sm hover:text-primary transition-colors duration-200"
+                      className="inline-flex items-center gap-2 text-black/60 text-sm hover:text-[#F04A00] transition-colors duration-200"
                     >
                       <Icon size={13} />
                       {label}
                     </a>
                   </li>
                 ))}
-                <li className="inline-flex items-center gap-2 text-gray-500 text-sm">
+                <li className="inline-flex items-center gap-2 text-black/60 text-sm">
                   <MapPin size={13} />
                   Dindigul, India
                 </li>
@@ -170,27 +170,28 @@ export default function FooterSection() {
           ribbonColor="#F04A00"
           ribbonWidth={60}
           pauseOnHover
+          className="font-migra"
         />
       </div>
 
-      {/* ── Bottom bar ───────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pb-8 mt-0">
-        <div className="border-t border-white/[0.04] pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      {/* ── Bottom Bar ─────────────────────────────────────── */}
+      <div className="relative z-10 mt-16 md:mt-20 border-t border-black/10 pt-8 pb-12">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-4 md:px-8">
 
           <nav className="flex flex-wrap gap-4 sm:gap-6">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-gray-400 text-[11px] hover:text-primary transition-colors duration-200"
+                className="text-black/60 text-[11px] hover:text-[#F04A00] transition-colors duration-200"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <p className="text-gray-500 text-[11px] shrink-0">
-            © {new Date().getFullYear()} Strenovix — Crafted with precision.
+          <p className="text-black/50 text-[11px] shrink-0">
+            © {new Date().getFullYear()} <span className="font-migra font-extrabold">Strenovix</span> — Crafted with precision.
           </p>
 
         </div>

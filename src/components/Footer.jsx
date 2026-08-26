@@ -77,7 +77,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="footer-bottom">
-        <span>© 2026 Strenovix. All rights reserved.</span>
+        <span>© 2026 <span className="font-migra font-extrabold" style={{ fontFamily: 'Migra, serif', fontWeight: 800 }}>Strenovix</span>. All rights reserved.</span>
         <span>Crafted with precision ✦</span>
       </div>
     </footer>
