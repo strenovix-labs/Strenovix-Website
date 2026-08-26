@@ -48,7 +48,7 @@ const sapModules = [
   },
 ];
 
-function ImageCarousel({ images, alt }) {
+function ImageCarousel({ images, alt, className = "" }) {
   const [currentIdx, setCurrentIdx] = useState(0);
 
   const handlePrev = (e) => {
@@ -62,7 +62,7 @@ function ImageCarousel({ images, alt }) {
   };
 
   return (
-    <div className="relative w-full aspect-[16/9] overflow-hidden border-b border-black/[0.06] bg-black group/carousel">
+    <div className={`relative w-full overflow-hidden bg-black group/carousel ${className}`}>
       <AnimatePresence mode="wait">
         <motion.img
           key={currentIdx}
@@ -72,7 +72,7 @@ function ImageCarousel({ images, alt }) {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.25 }}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-cover object-top"
         />
       </AnimatePresence>
 
@@ -190,7 +190,7 @@ function ProjectModal({ project, onClose }) {
             </button>
 
             {project.images && project.images.length > 0 ? (
-              <ImageCarousel images={project.images} alt={project.title} />
+              <ImageCarousel images={project.images} alt={project.title} className="aspect-[16/9] border-b border-black/[0.06]" />
             ) : project.image ? (
               <div className="w-full aspect-[16/9] overflow-hidden border-b border-black/[0.06]">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
