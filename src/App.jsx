@@ -13,12 +13,13 @@ import Scene3D from './three/Scene3D';
 import AppDevPage from './pages/AppDevPage';
 import WebDevPage from './pages/WebDevPage';
 import MLPage from './pages/MLPage';
+import SAPPage from './pages/SAPPage';
 
 function AppContent() {
   useLenis();
   const { route } = useRouter();
   const [prefilledEmail, setPrefilledEmail] = useState('');
-  const subPages = ['services/app-dev', 'services/web-dev', 'services/ml'];
+  const subPages = ['services/app-dev', 'services/web-dev', 'services/ml', 'services/sap'];
   const isSubPage = subPages.includes(route);
 
   return (
@@ -27,6 +28,7 @@ function AppContent() {
       {route === 'services/app-dev' && <AppDevPage />}
       {route === 'services/web-dev' && <WebDevPage />}
       {route === 'services/ml' && <MLPage />}
+      {route === 'services/sap' && <SAPPage />}
       {!isSubPage && (
         <>
           <HeroSection onSubscribe={(email) => {

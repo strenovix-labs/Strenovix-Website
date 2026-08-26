@@ -41,6 +41,17 @@ const FEATURES = [
       'Predictive analytics dashboards',
     ],
   },
+  {
+    number: '04',
+    title: 'SAP.',
+    route: 'services/sap',
+    icon: '/services/sap.svg',
+    items: [
+      'Enterprise ERP implementation & customization',
+      'Seamless data migration & systems integration',
+      'Custom SAP BTP, ABAP & Fiori development',
+    ],
+  },
 ];
 
 function FeatureCard({ feature, index }) {
@@ -163,8 +174,8 @@ export default function FeaturesSection() {
           />
         </div>
 
-        {/* 4-column card grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-2 md:gap-2 lg:h-[480px]">
+        {/* 5-column card grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-2 md:gap-2 lg:h-[480px]">
           <VideoCard />
           {FEATURES.map((feature, i) => (
             <FeatureCard key={feature.number} feature={feature} index={i} />

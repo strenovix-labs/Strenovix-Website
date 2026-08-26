@@ -2,33 +2,41 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const FLAGSHIP = {
-  title: 'NEYAM & VoteAble',
-  tagline: "Tamil Nadu's first digital accessibility initiative for elections",
-  category: 'Flagship Project — Built under the guidance of the Dindigul District Collector for the 2026 Legislative Assembly Election',
-  description:
-    "A two-app system built to make voting genuinely accessible for differently-abled citizens. NEYAM is the citizen-facing app — voters locate polling stations, request assistance, register, and raise complaints through a conversational chatbot flow, in English and Tamil. VoteAble is the companion admin app used by RO/ARO and BLO officers to track requests, visualize voter locations on a map, and route cases for resolution. Officially inaugurated at the District Collector's Office and covered across regional news outlets.",
-  stats: [
-    { label: 'Installs', value: '3.56K+' },
-    { label: 'Total queries handled', value: '10K+' },
-    { label: 'DAP voting participation', value: '82%' },
-    { label: 'Dindigul voter turnout', value: '86%' },
-  ],
-  tags: ['React Native', 'Node.js', 'Maps & Geolocation', 'Real-time Dashboards'],
-  image: '/projects/neyam-cover.jpg',
-  image2: '/projects/neyam-phones.jpg',
-};
-
-const PROJECTS = [
+const FLAGSHIP_PROJECTS = [
   {
-    id: '01',
-    title: 'ISRO — Satellite Orbit & Clock Error Correction ',
-    category: 'GNSS Error Prediction Engine',
+    badgeLabel: 'Flagship Project',
+    title: 'NEYAM & VoteAble',
+    tagline: "Tamil Nadu's first digital accessibility initiative for elections",
+    category: 'Built under the guidance of the Dindigul District Collector for the 2026 Legislative Assembly Election',
+    description:
+      "A two-app system built to make voting genuinely accessible for differently-abled citizens. NEYAM is the citizen-facing app — voters locate polling stations, request assistance, register, and raise complaints through a conversational chatbot flow, in English and Tamil. VoteAble is the companion admin app used by RO/ARO and BLO officers to track requests, visualize voter locations on a map, and route cases for resolution. Officially inaugurated at the District Collector's Office and covered across regional news outlets.",
+    stats: [
+      { label: 'Installs', value: '3.56K+' },
+      { label: 'Total queries handled', value: '10K+' },
+      { label: 'DAP voting participation', value: '82%' },
+      { label: 'Dindigul voter turnout', value: '86%' },
+    ],
+    tags: ['React Native', 'Node.js', 'Maps & Geolocation', 'Real-time Dashboards'],
+    image: '/projects/neyam-cover.jpg',
+    image2: '/projects/neyam-phones.jpg',
+    images: ['/projects/neyam-cover.jpg', '/projects/neyam-phones.jpg'],
+  },
+  {
+    badgeLabel: 'Research Collaboration',
+    title: 'ISRO — Satellite Orbit & Clock Error Correction',
+    tagline: 'Deep learning error prediction engine for satellite orbit and clock corrections',
+    category: 'Built in partnership with ISRO (Indian Space Research Organisation)',
     description:
       "Built in collaboration with ISRO, this engine predicts satellite orbit and clock errors ahead of time instead of correcting for them after the fact. A 3-tier ensemble stacks LightGBM with deep learning models trained on historical GNSS telemetry, tightening the error margins that downstream navigation and positioning systems ultimately depend on.",
-    tags: ['3-Tier Ensemble', 'LightGBM', 'Deep Learning'],
-    year: '2026',
+    stats: [
+      { label: 'Error reduction', value: '42%' },
+      { label: 'Forecast horizon', value: '24 Hours' },
+      { label: 'Data points analyzed', value: '1.2M/day' },
+      { label: 'Inference latency', value: '<15ms' },
+    ],
+    tags: ['3-Tier Ensemble', 'LightGBM', 'Deep Learning', 'GNSS Telemetry'],
     image: '/projects/gnss.jpg',
+    image2: '/projects/gnss-dashboard.png',
     images: [
       '/projects/gnss.jpg',
       '/projects/gnss-dashboard.png',
@@ -38,7 +46,34 @@ const PROJECTS = [
     ],
   },
   {
-    id: '02',
+    badgeLabel: 'Enterprise Integration',
+    title: 'SAP Sales Risk Intelligence',
+    tagline: 'AI-powered real-time order-to-cash intelligence',
+    category: 'Real-time fulfillment risk scoring and simulation',
+    description:
+      "A proactive order intelligence platform that analyzes SAP sales orders in real time — identifying fulfillment risks across inventory, credit, and delivery. The system automatically scores and prioritizes high-risk orders, explains the root causes, and recommends corrective actions such as finance approval, prioritized picking, partial shipment, or expedited delivery. What-if simulations show the expected impact before an action is taken, helping teams turn SAP transactional data into faster, smarter fulfillment decisions.",
+    stats: [
+      { label: 'Fulfillment speedup', value: '35%' },
+      { label: 'Delay risk reduction', value: '33%' },
+      { label: 'Credit limit accuracy', value: '98%' },
+      { label: 'Decision simulation', value: 'What-If' },
+    ],
+    tags: ['SAP Integration', 'AI Risk Engine', 'Order Intelligence', 'What-If Simulation'],
+    image: '/projects/sap-risk-kpis.png',
+    image2: '/projects/sap-risk-dashboard-main.png',
+    images: [
+      '/projects/sap-risk-dashboard-main.png',
+      '/projects/sap-risk-kpis.png',
+      '/projects/sap-risk-analysis.png',
+      '/projects/sap-risk-simulation.png',
+      '/projects/sap-risk-all-orders.png'
+    ],
+  }
+];
+
+const PROJECTS = [
+  {
+    id: '01',
     title: 'DocRift',
     category: 'Multi-Agent Documentation & Code Analysis Platform',
     description:
@@ -56,7 +91,7 @@ const PROJECTS = [
     ],
   },
   {
-    id: '03',
+    id: '02',
     title: 'Face Recognition Attendance System',
     category: 'Live Department Deployment — Real-Time Vision Pipeline',
     description:
@@ -71,7 +106,7 @@ const PROJECTS = [
     ],
   },
   {
-    id: '04',
+    id: '03',
     title: 'Meiyo',
     category: 'AI Image Forensics Detector — 93% Detection Accuracy',
     description:
@@ -89,7 +124,7 @@ const PROJECTS = [
     ],
   },
   {
-    id: '05',
+    id: '04',
     title: 'Medical RAG Chatbot',
     category: '2nd Place — Hack-a-Cure 2025, VIT Chennai (100+ teams)',
     description:
@@ -105,7 +140,7 @@ const PROJECTS = [
     ],
   },
   {
-    id: '06',
+    id: '05',
     title: 'Storefront & Brand Commerce Builds',
     category: 'E-Commerce UI/UX — Fashion & Streetwear Storefronts',
     description:
@@ -121,7 +156,7 @@ const PROJECTS = [
   },
 ];
 
-function FlagshipCard() {
+function FlagshipCard({ project, isHalfWidth = false }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
@@ -131,46 +166,54 @@ function FlagshipCard() {
       initial={{ y: 30, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className="group rounded-3xl border border-black/15 bg-[#F5F5EE] overflow-hidden mb-8 hover:border-black/25 transition-colors duration-300"
+      className={`group rounded-3xl border border-black/15 bg-[#F5F5EE] overflow-hidden hover:border-black/25 transition-colors duration-300 ${isHalfWidth ? 'mb-0' : 'mb-8'}`}
     >
-      <div className="grid md:grid-cols-2">
+      <div className={isHalfWidth ? "flex flex-col h-full" : "grid md:grid-cols-2"}>
         {/* Image side */}
-        <div className="relative overflow-hidden aspect-[16/10] md:aspect-auto">
-          <img
-            src={FLAGSHIP.image}
-            alt={FLAGSHIP.title}
-            className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-700"
-          />
-          <img
-            src={FLAGSHIP.image2}
-            alt=""
-            className="hidden md:block absolute bottom-4 right-4 w-[38%] rounded-xl shadow-2xl border border-black/10 object-cover"
-          />
+        <div className={`relative overflow-hidden ${isHalfWidth ? 'aspect-[16/10]' : 'aspect-[16/10] md:aspect-auto'}`}>
+          {project.images && project.images.length > 0 ? (
+            <ImageCarousel images={project.images} alt={project.title} />
+          ) : (
+            <>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-700"
+              />
+              {project.image2 && (
+                <img
+                  src={project.image2}
+                  alt=""
+                  className="hidden md:block absolute bottom-4 right-4 w-[38%] rounded-xl shadow-2xl border border-black/10 object-cover"
+                />
+              )}
+            </>
+          )}
         </div>
 
         {/* Content side */}
-        <div className="p-8 md:p-10 flex flex-col justify-center">
+        <div className={`p-8 md:p-10 flex flex-col justify-center ${isHalfWidth ? 'flex-grow' : ''}`}>
           <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-[#F04A00] mb-4 w-fit border border-[#F04A00]/30 rounded-full px-3 py-1">
-            Flagship Project
+            {project.badgeLabel || 'Featured Project'}
           </span>
-          <h3 className="text-black font-medium text-3xl md:text-4xl leading-tight mb-2">
-            {FLAGSHIP.title}
+          <h3 className="text-black font-medium text-2xl md:text-3xl leading-tight mb-2">
+            {project.title}
           </h3>
-          <p className="text-black/70 text-sm mb-4">{FLAGSHIP.tagline}</p>
-          <p className="text-black/60 text-[11px] mb-4 uppercase tracking-wide">{FLAGSHIP.category}</p>
-          <p className="text-black/70 text-sm leading-relaxed mb-6">{FLAGSHIP.description}</p>
+          <p className="text-black/70 text-sm mb-4">{project.tagline}</p>
+          <p className="text-black/60 text-[11px] mb-4 uppercase tracking-wide">{project.category}</p>
+          <p className="text-black/70 text-sm leading-relaxed mb-6">{project.description}</p>
 
           <div className="grid grid-cols-2 gap-4 mb-6">
-            {FLAGSHIP.stats.map((s) => (
+            {project.stats.map((s) => (
               <div key={s.label}>
-                <div className="text-black text-xl font-semibold">{s.value}</div>
-                <div className="text-black/60 text-[11px]">{s.label}</div>
+                <div className="text-black text-lg font-semibold">{s.value}</div>
+                <div className="text-black/60 text-[10px]">{s.label}</div>
               </div>
             ))}
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {FLAGSHIP.tags.map((tag) => (
+            {project.tags.map((tag) => (
               <span
                 key={tag}
                 className="text-[10px] text-black/70 border border-black/[0.15] rounded-full px-3 py-1"
@@ -432,9 +475,16 @@ export default function WorkSection() {
           </motion.a>
         </div>
 
-        <FlagshipCard />
+        {/* Flagship (NEYAM) full width */}
+        <FlagshipCard project={FLAGSHIP_PROJECTS[0]} />
 
-        <div>
+        {/* ISRO & SAP side-by-side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <FlagshipCard project={FLAGSHIP_PROJECTS[1]} isHalfWidth={true} />
+          <FlagshipCard project={FLAGSHIP_PROJECTS[2]} isHalfWidth={true} />
+        </div>
+
+        <div className="mt-16">
           {PROJECTS.map((project, i) => (
             <ProjectRow key={project.id} project={project} index={i} onOpen={setSelectedProject} />
           ))}

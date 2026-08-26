@@ -24,6 +24,13 @@ const services = [
     desc: 'Custom AI and machine learning solutions that transform raw data into intelligent insights — your competitive edge.',
     tags: ['Python', 'TensorFlow', 'PyTorch', 'LLMs'],
   },
+  {
+    num: '04',
+    title: 'SAP',
+    route: 'services/sap',
+    desc: 'Seamless SAP integration, ERP customization, and cloud solutions to optimize enterprise processes and drive efficiency.',
+    tags: ['SAP ECC/S4HANA', 'ABAP', 'Fiori', 'SAP BTP'],
+  },
 ];
 
 export default function Services() {
@@ -35,7 +42,7 @@ export default function Services() {
         <div className="services-head">
           <span className="section-label reveal">Services</span>
           <h2 className="section-heading reveal reveal-delay-1">
-            Our approach to success<br />is built on three pillars.
+            Our approach to success<br />is built on four pillars.
           </h2>
           <p className="services-sub reveal reveal-delay-2">
             Visually stunning, interactive products made to assert your digital dominance and captivate.
