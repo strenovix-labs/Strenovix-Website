@@ -1,150 +1,126 @@
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
 import './ChromaGrid.css';
 
 export const ChromaGrid = ({
-    items,
-    className = '',
-    radius = 300,
-    columns = 3,
-    rows = 2,
-    damping = 0.45,
-    fadeOut = 0.6,
-    ease = 'power3.out'
+  items,
+  className = '',
+  radius = 300,
+  columns = 3,
+  rows = 2,
+  damping = 0.45,
+  fadeOut = 0.6,
+  ease = 'power3.out'
 }) => {
-    const rootRef = useRef(null);
-    const fadeRef = useRef(null);
-    const setX = useRef(null);
-    const setY = useRef(null);
-    const pos = useRef({ x: 0, y: 0 });
+  const demo = [
+    {
+      image: 'https://i.pravatar.cc/300?img=8',
+      title: 'Alex Rivera',
+      subtitle: 'Full Stack Developer',
+      handle: '@alexrivera',
+      borderColor: '#4F46E5',
+      gradient: 'linear-gradient(145deg, #4F46E5, #000)',
+      url: 'https://github.com/'
+    },
+    {
+      image: 'https://i.pravatar.cc/300?img=11',
+      title: 'Jordan Chen',
+      subtitle: 'DevOps Engineer',
+      handle: '@jordanchen',
+      borderColor: '#10B981',
+      gradient: 'linear-gradient(210deg, #10B981, #000)',
+      url: 'https://linkedin.com/in/'
+    },
+    {
+      image: 'https://i.pravatar.cc/300?img=3',
+      title: 'Morgan Blake',
+      subtitle: 'UI/UX Designer',
+      handle: '@morganblake',
+      borderColor: '#F59E0B',
+      gradient: 'linear-gradient(165deg, #F59E0B, #000)',
+      url: 'https://dribbble.com/'
+    },
+    {
+      image: 'https://i.pravatar.cc/300?img=16',
+      title: 'Casey Park',
+      subtitle: 'Data Scientist',
+      handle: '@caseypark',
+      borderColor: '#EF4444',
+      gradient: 'linear-gradient(195deg, #EF4444, #000)',
+      url: 'https://kaggle.com/'
+    },
+    {
+      image: 'https://i.pravatar.cc/300?img=25',
+      title: 'Sam Kim',
+      subtitle: 'Mobile Developer',
+      handle: '@thesamkim',
+      borderColor: '#8B5CF6',
+      gradient: 'linear-gradient(225deg, #8B5CF6, #000)',
+      url: 'https://github.com/'
+    },
+    {
+      image: 'https://i.pravatar.cc/300?img=60',
+      title: 'Tyler Rodriguez',
+      subtitle: 'Cloud Architect',
+      handle: '@tylerrod',
+      borderColor: '#06B6D4',
+      gradient: 'linear-gradient(135deg, #06B6D4, #000)',
+      url: 'https://aws.amazon.com/'
+    }
+  ];
+  const data = items?.length ? items : demo;
 
-    const defaultItems = [
-        {
-            image: 'https://i.pravatar.cc/300?img=33',
-            title: 'Arjun Menon',
-            subtitle: 'Co-Founder & CEO',
-            handle: '@arjunmenon',
-            borderColor: '#000000',
-            gradient: 'linear-gradient(145deg, #6c3fd4 0%, #060608 80%)',
-            url: '#'
-        },
-        {
-            image: 'https://i.pravatar.cc/300?img=47',
-            title: 'Priya Nair',
-            subtitle: 'Co-Founder & CTO',
-            handle: '@priyanair',
-            borderColor: '#333333',
-            gradient: 'linear-gradient(145deg, #d4246c 0%, #060608 80%)',
-            url: '#'
-        },
-        {
-            image: 'https://i.pravatar.cc/300?img=12',
-            title: 'Karthik Rajan',
-            subtitle: 'Head of Engineering',
-            handle: '@karthikrajan',
-            borderColor: '#10B981',
-            gradient: 'linear-gradient(145deg, #10B981 0%, #060608 80%)',
-            url: '#'
-        },
-        {
-            image: 'https://i.pravatar.cc/300?img=23',
-            title: 'Divya Krishnan',
-            subtitle: 'Head of Design',
-            handle: '@divyakrishnan',
-            borderColor: '#F59E0B',
-            gradient: 'linear-gradient(145deg, #F59E0B 0%, #060608 80%)',
-            url: '#'
-        },
-        {
-            image: 'https://i.pravatar.cc/300?img=55',
-            title: 'Sanjay Pillai',
-            subtitle: 'ML Research Lead',
-            handle: '@sanjaypillai',
-            borderColor: '#06B6D4',
-            gradient: 'linear-gradient(145deg, #06B6D4 0%, #060608 80%)',
-            url: '#'
-        },
-        {
-            image: 'https://i.pravatar.cc/300?img=60',
-            title: 'Meena Suresh',
-            subtitle: 'Growth & Marketing',
-            handle: '@meenasuresh',
-            borderColor: '#EF4444',
-            gradient: 'linear-gradient(145deg, #EF4444 0%, #060608 80%)',
-            url: '#'
-        },
-    ];
+  const handleCardClick = url => {
+    if (url) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
 
-    const data = items?.length ? items : defaultItems;
+  const handleCardMove = e => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  };
 
-    useEffect(() => {
-        const el = rootRef.current;
-        if (!el) return;
-        setX.current = gsap.quickSetter(el, '--x', 'px');
-        setY.current = gsap.quickSetter(el, '--y', 'px');
-        const { width, height } = el.getBoundingClientRect();
-        pos.current = { x: width / 2, y: height / 2 };
-        setX.current(pos.current.x);
-        setY.current(pos.current.y);
-    }, []);
-
-    const moveTo = (x, y) => {
-        gsap.to(pos.current, {
-            x, y,
-            duration: damping,
-            ease,
-            onUpdate: () => { setX.current?.(pos.current.x); setY.current?.(pos.current.y); },
-            overwrite: true
-        });
-    };
-
-    const handleMove = e => {
-        const r = rootRef.current.getBoundingClientRect();
-        moveTo(e.clientX - r.left, e.clientY - r.top);
-        gsap.to(fadeRef.current, { opacity: 0, duration: 0.25, overwrite: true });
-    };
-
-    const handleLeave = () => {
-        gsap.to(fadeRef.current, { opacity: 1, duration: fadeOut, overwrite: true });
-    };
-
-    const handleCardMove = e => {
-        const card = e.currentTarget;
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-    };
-
-    return (
-        <div
-            ref={rootRef}
-            className={`chroma-grid ${className}`}
-            style={{ '--r': `${radius}px`, '--cols': columns, '--rows': rows }}
-            onPointerMove={handleMove}
-            onPointerLeave={handleLeave}
+  return (
+    <div
+      className={`chroma-grid ${className}`}
+      style={{
+        '--cols': columns,
+        '--rows': rows
+      }}
+    >
+      {data.map((c, i) => (
+        <article
+          key={i}
+          className="chroma-card"
+          onMouseMove={handleCardMove}
+          onClick={() => handleCardClick(c.url)}
+          style={{
+            '--card-border': c.borderColor || 'transparent',
+            '--card-gradient': c.gradient,
+            cursor: c.url ? 'pointer' : 'default'
+          }}
         >
-            {data.map((c, i) => (
-                <article
-                    key={i}
-                    className="chroma-card"
-                    onMouseMove={handleCardMove}
-                    onClick={() => c.url && c.url !== '#' && window.open(c.url, '_blank', 'noopener,noreferrer')}
-                    style={{ '--card-border': c.borderColor || 'transparent', '--card-gradient': c.gradient, cursor: c.url && c.url !== '#' ? 'pointer' : 'default' }}
-                >
-                    <div className="chroma-img-wrapper">
-                        <img src={c.image} alt={c.title} loading="lazy" />
-                    </div>
-                    <footer className="chroma-info">
-                        <h3 className="name">{c.title}</h3>
-                        {c.handle && <span className="handle">{c.handle}</span>}
-                        <p className="role">{c.subtitle}</p>
-                    </footer>
-                </article>
-            ))}
-            <div className="chroma-overlay" />
-            <div ref={fadeRef} className="chroma-fade" />
-        </div>
-    );
+          <div className="chroma-img-wrapper">
+            <img 
+              src={c.image} 
+              alt={c.title} 
+              loading="lazy" 
+              style={c.objectPosition ? { objectPosition: c.objectPosition } : undefined}
+            />
+            <footer className="chroma-info">
+              {c.handle && <span className="handle">{c.handle}</span>}
+              <h3 className="name">{c.title}</h3>
+              <p className="role">{c.subtitle}</p>
+              {c.location && <span className="location">{c.location}</span>}
+            </footer>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
 };
 
 export default ChromaGrid;

@@ -1,54 +1,88 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import ChromaGrid from './ChromaGrid';
+import ScrollVelocity from './ScrollVelocity';
 
-const TEAM = [
-  { photo: '/team/member-1.jpg', name: '', role: '' },
-  { photo: '/team/member-2.jpg', name: '', role: '' },
-  { photo: '/team/member-3.jpg', name: '', role: '' },
-  { photo: '/team/member-4.jpg', name: '', role: '' },
-  { photo: '/team/member-5.jpg', name: '', role: '' },
-  { photo: '/team/member-6.jpg', name: '', role: '' },
+const teamItems = [
+  {
+    image: '/team/nivesh.png',
+    title: 'Nivesh Varun',
+    subtitle: 'ML Engineer · Backend Engineer',
+    handle: '@niveshvarun',
+    borderColor: '#F04A00',
+    gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
+    url: ''
+  },
+  {
+    image: '/team/rupesh.png',
+    title: 'Rupesh',
+    subtitle: 'App Developer · Backend · UI/UX',
+    handle: '@rupesh',
+    borderColor: '#F04A00',
+    gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
+    url: ''
+  },
+  {
+    image: '/team/sajan.png',
+    title: 'Sajan',
+    subtitle: 'Full Stack Engineer · Cloud Engineer · Agentic AI Engineer',
+    handle: '@sajan',
+    borderColor: '#F04A00',
+    gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
+    url: ''
+  },
+  {
+    image: '/team/sanjay.png',
+    title: 'Sanjay',
+    subtitle: 'SaaS · SAP · ML · App Developer',
+    handle: '@sanjay',
+    borderColor: '#F04A00',
+    gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
+    url: '',
+    objectPosition: '68% center'
+  },
+  {
+    image: '/team/tamil.png',
+    title: 'Tamil',
+    subtitle: 'App Developer · Data Analyst · SAP',
+    handle: '@tamil',
+    borderColor: '#F04A00',
+    gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
+    url: ''
+  },
+  {
+    image: '/team/vijai-compressed.png',
+    title: 'Roobak Vijai',
+    subtitle: 'App Developer · Digital Marketing · Backend · UI/UX',
+    handle: '@vijai',
+    borderColor: '#F04A00',
+    gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
+    url: ''
+  }
 ];
-
-function TeamCard({ member, index }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ y: 30, opacity: 0 }}
-      animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-[#F5F5EE] rounded-2xl p-6 md:p-7 group border border-black/15"
-    >
-      {/* Photo */}
-      <div className="w-full aspect-[4/5] rounded-xl overflow-hidden mb-5 bg-[#F5F5EE]">
-        <img
-          src={member.photo}
-          alt={member.name || 'Team member'}
-          className="w-full h-full object-cover object-top grayscale-[15%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.03]"
-        />
-      </div>
-
-      <h3 className="text-black font-medium text-base mb-1 min-h-[1.25rem]">
-        {member.name || <span className="text-gray-600">Name coming soon</span>}
-      </h3>
-      <p className="text-black/70 text-xs min-h-[1rem]">
-        {member.role || <span className="text-gray-700">Role coming soon</span>}
-      </p>
-    </motion.div>
-  );
-}
 
 export default function TeamSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="bg-transparent py-24 px-4 md:px-8" id="team">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-transparent py-24 px-4 md:px-8 relative overflow-hidden" id="team">
+      
+      {/* ScrollVelocity in the background spanning edge-to-edge across the screen */}
+      <div className="scroll-velocity-container">
+        <ScrollVelocity
+          texts={['Strenovix', 'Strenovix', 'Strenovix', 'Strenovix', 'Strenovix', 'Strenovix']} 
+          velocity={50}
+          className=""
+          numCopies={12}
+          damping={65}
+          stiffness={800}
+        />
+      </div>
 
+      <div className="max-w-7xl mx-auto relative z-10">
+
+        {/* Section heading */}
         <motion.div
           ref={ref}
           initial={{ y: 20, opacity: 0 }}
@@ -67,10 +101,17 @@ export default function TeamSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {TEAM.map((member, i) => (
-            <TeamCard key={member.photo} member={member} index={i} />
-          ))}
+        {/* ChromaGrid in the foreground */}
+        <div style={{ minHeight: '600px', position: 'relative' }}>
+          <ChromaGrid 
+            items={teamItems}
+            radius={800}
+            damping={2}
+            fadeOut={2}
+            ease="power3.out"
+            columns={3}
+            rows={2}
+          />
         </div>
 
       </div>

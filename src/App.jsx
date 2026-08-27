@@ -4,7 +4,7 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import FeaturesSection from './components/FeaturesSection';
 import WorkSection from './components/WorkSection';
-import ToonHubCarousel from './components/ToonHubCarousel';
+import TeamSection from './components/TeamSection';
 import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
 import useLenis from './three/useLenis';
@@ -43,7 +43,7 @@ function AppContent() {
           <AboutSection />
           <FeaturesSection />
           <WorkSection />
-          <ToonHubCarousel />
+          <TeamSection />
           <ContactSection prefilledEmail={prefilledEmail} />
           <FooterSection />
         </>

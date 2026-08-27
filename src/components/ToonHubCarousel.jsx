@@ -7,7 +7,7 @@ const MEMBERS = [
   { name: 'Sajan', role: 'FullStack Developer', image: '/team/sajan.png' },
   { name: 'Sanjay', role: 'SaaS Engineer', image: '/team/sanjay.png' },
   { name: 'Tamil', role: 'Data Analyst', image: '/team/tamil.png' },
-  { name: 'Vijai', role: 'App Developer', image: '/team/vijai-compressed.png' },
+  { name: 'Roobak Vijai', role: 'App Developer', image: '/team/vijai-compressed.png' },
 ];
 
 const N = MEMBERS.length;
