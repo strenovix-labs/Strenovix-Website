@@ -25,7 +25,7 @@ const teamItems = [
   {
     image: '/team/sajan.png',
     title: 'Sajan',
-    subtitle: 'Full Stack Engineer · Cloud Engineer · Agentic AI Engineer',
+    subtitle: 'Full Stack · Cloud · Agentic AI Engineer',
     handle: '@sajan',
     borderColor: '#F04A00',
     gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
