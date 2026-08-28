@@ -1,4 +1,4 @@
-// Declarative choreography table — single source of truth for where the
+// Declarative choreography table - single source of truth for where the
 // shared glass object sits per section. GlassObjects.jsx lerps toward
 // whichever entry matches the section the current scroll progress falls in.
 // Object recedes (scaled down, pushed back) through the dense content
@@ -13,7 +13,7 @@ export const SECTION_BREAKPOINTS = [
   { id: 'work', ...RECEDED },
   { id: 'team', ...RECEDED },
   // CameraRig zooms out across the whole page (camZ 5->9), so by Contact's
-  // scroll depth the camera is ~1.6x farther away than at Hero — scale up
+  // scroll depth the camera is ~1.6x farther away than at Hero - scale up
   // to compensate and keep the object visually prominent, not a speck.
   { id: 'contact', position: [-1.4, -0.1, 1.2], rotation: [0.8, -0.5, 0.2], scale: 1.9, color: '#000000' },
 ];

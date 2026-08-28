@@ -46,11 +46,11 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      /* 1 — eyebrow scramble */
+      /* 1 - eyebrow scramble */
       const eyebrow = ref.current.querySelector('.hero-eyebrow-text');
       if (eyebrow) scrambleIn(eyebrow, 0.3);
 
-      /* 2 — clip-wipe each word */
+      /* 2 - clip-wipe each word */
       gsap.set('.hword', { clipPath: 'inset(0 100% 0 0)', opacity: 1 });
       gsap.to('.hword', {
         clipPath: 'inset(0 0% 0 0)',
@@ -60,12 +60,12 @@ export default function Hero() {
         delay: 0.5,
       });
 
-      /* 3 — right-side stat cards slide in */
+      /* 3 - right-side stat cards slide in */
       gsap.from('.hero-stat', {
         x: 60, opacity: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out', delay: 1.2,
       });
 
-      /* 4 — bottom bar */
+      /* 4 - bottom bar */
       gsap.from('.hero-bar', {
         scaleX: 0, duration: 1.2, ease: 'power4.out', delay: 1.0, transformOrigin: 'left center',
       });
@@ -73,7 +73,7 @@ export default function Hero() {
         opacity: 0, y: 16, duration: 0.7, stagger: 0.08, ease: 'power3.out', delay: 1.4,
       });
 
-      /* 5 — label scramble */
+      /* 5 - label scramble */
       const label = ref.current.querySelector('.hero-label-scramble');
       if (label) scrambleIn(label, 1.5);
     }, ref);

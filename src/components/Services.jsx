@@ -7,7 +7,7 @@ const services = [
     num: '01',
     title: 'App Development',
     route: 'services/app-dev',
-    desc: 'Native and cross-platform apps built for performance, scalability, and exceptional UX — from concept to the App Store.',
+    desc: 'Native and cross-platform apps built for performance, scalability, and exceptional UX, from concept to the App Store.',
     tags: ['React Native', 'Flutter', 'iOS', 'Android'],
   },
   {
@@ -21,7 +21,7 @@ const services = [
     num: '03',
     title: 'ML Model Training',
     route: 'services/ml',
-    desc: 'Custom AI and machine learning solutions that transform raw data into intelligent insights — your competitive edge.',
+    desc: 'Custom AI and machine learning solutions that transform raw data into intelligent insights: your competitive edge.',
     tags: ['Python', 'TensorFlow', 'PyTorch', 'LLMs'],
   },
   {

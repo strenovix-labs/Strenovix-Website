@@ -66,7 +66,7 @@ export default function Founders() {
           <span className="section-label reveal">The People</span>
           <h2 className="section-heading reveal reveal-delay-1">Meet the Team.</h2>
           <p className="founders-sub reveal reveal-delay-2">
-            A small, elite crew obsessed with craft — building products that define the next era of digital business.
+            A small, elite crew obsessed with craft, building products that define the next era of digital business.
           </p>
         </div>
 

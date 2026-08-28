@@ -22,7 +22,7 @@ export default function FinalCTA() {
             <span className="glow-text">extraordinary.</span>
           </h2>
           <p className="cta-sub reveal">
-            Whether it's an app, a website, an AI model or a growth campaign — we're ready to execute at the highest level.
+            Whether it's an app, a website, an AI model or a growth campaign, we're ready to execute at the highest level.
           </p>
 
           <div className="cta-actions reveal">

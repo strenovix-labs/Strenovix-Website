@@ -122,7 +122,7 @@ const PROJECTS = [
     desc: 'An AI-powered order-to-cash intelligence platform analyzing SAP sales orders in real-time to identify fulfillment risks across inventory, credit, and delivery.',
     tag: 'Order Intelligence',
     category: 'AI-Powered Order-to-Cash Intelligence',
-    description: 'A proactive order intelligence platform that analyzes SAP sales orders in real time — identifying fulfillment risks across inventory, credit, and delivery. The system automatically scores and prioritizes high-risk orders, explains the root causes, and recommends corrective actions such as finance approval, prioritized picking, partial shipment, or expedited delivery. What-if simulations show the expected impact before an action is taken, helping teams turn SAP transactional data into faster, smarter fulfillment decisions.',
+    description: 'A proactive order intelligence platform that analyzes SAP sales orders in real time, identifying fulfillment risks across inventory, credit, and delivery. The system automatically scores and prioritizes high-risk orders, explains the root causes, and recommends corrective actions such as finance approval, prioritized picking, partial shipment, or expedited delivery. What-if simulations show the expected impact before an action is taken, helping teams turn SAP transactional data into faster, smarter fulfillment decisions.',
     tags: ['SAP Integration', 'AI Risk Engine', 'Order Intelligence'],
     year: '2026',
     image: '/projects/sap-risk-dashboard-main.png',
@@ -257,7 +257,7 @@ export default function SAPPage() {
           Enterprise ERP<br /><span className="sap-glow">integrated flawlessly.</span>
         </h1>
         <p className="sap-sub">
-          Custom ABAP development, Fiori UX design, and cloud integrations on SAP BTP — ensuring your core ERP runs cleanly and scales seamlessly.
+          Custom ABAP development, Fiori UX design, and cloud integrations on SAP BTP, ensuring your core ERP runs cleanly and scales seamlessly.
         </p>
       </div>
 

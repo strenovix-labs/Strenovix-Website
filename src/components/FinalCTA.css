@@ -3,7 +3,7 @@
   z-index: 1;
   padding: 120px 0 0;
   border-top: 1px solid var(--border);
-  /* overflow: hidden removed — it was clipping the right column on desktop */
+  /* overflow: hidden removed - it was clipping the right column on desktop */
 }
 
 /* Indigo/cyan radial glow */
@@ -124,7 +124,7 @@
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--white-80);
-  /* allow wrapping on narrow columns — no more overflow */
+  /* allow wrapping on narrow columns - no more overflow */
   word-break: break-all;
   line-height: 1.3;
 }

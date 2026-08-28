@@ -22,7 +22,7 @@ const TRANS = [
 ].join(', ');
 
 /*
-  CSS mask that fades the portrait crop to transparent at the edges —
+  CSS mask that fades the portrait crop to transparent at the edges -
   the face/upper body floats, hard rectangle disappears.
 */
 const STICKER_MASK = [
@@ -255,7 +255,7 @@ export default function ToonHubCarousel() {
             marginBottom: '0.25rem',
             textShadow: 'none',
           }}>
-            {isReal ? activeMember.name : '—'}
+            {isReal ? activeMember.name : '-'}
           </p>
           <p style={{
             fontFamily: 'Inter, sans-serif',

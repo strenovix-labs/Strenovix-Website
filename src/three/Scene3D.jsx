@@ -14,7 +14,7 @@ function getCapability() {
   return 'full';
 }
 
-// Single persistent WebGL canvas for the whole page — mounted once at the
+// Single persistent WebGL canvas for the whole page - mounted once at the
 // App root so there is only ever one GL context, not one per section.
 export default function Scene3D() {
   const capability = useMemo(getCapability, []);
@@ -47,7 +47,7 @@ export default function Scene3D() {
     };
   }, []);
 
-  // Respect prefers-reduced-motion entirely — no animated WebGL layer.
+  // Respect prefers-reduced-motion entirely - no animated WebGL layer.
   if (capability === 'reduced') return null;
 
   return (
@@ -59,7 +59,7 @@ export default function Scene3D() {
         camera={{ position: [0, 0, 5], fov: 75, near: 0.1, far: 100 }}
       >
         <Suspense fallback={null}>
-          {/* MeshDistortMaterial is PBR-lit — without these it renders ~black */}
+          {/* MeshDistortMaterial is PBR-lit - without these it renders ~black */}
           <ambientLight intensity={0.8} />
           <pointLight position={[4, 3, 6]} intensity={60} color="#fff7e8" />
           <pointLight position={[-4, -2, 4]} intensity={25} color="#DEDBC8" />

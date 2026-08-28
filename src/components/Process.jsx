@@ -4,13 +4,13 @@ import './Process.css';
 const steps = [
   { num: '01', label: 'Kick Off Call',     desc: 'We understand your goals, target audience, and success metrics through a focused discovery sprint.' },
   { num: '02', label: 'Research & Design', desc: 'Deep competitive research followed by wireframes, prototypes and validated design systems.' },
-  { num: '03', label: 'Build & Integrate', desc: 'Rapid engineering sprints with weekly demos — shipping quality code with full CI/CD pipelines.' },
+  { num: '03', label: 'Build & Integrate', desc: 'Rapid engineering sprints with weekly demos, shipping quality code with full CI/CD pipelines.' },
   { num: '04', label: 'Launch & Optimise', desc: 'Go-live, performance tuning, A/B experiments and ongoing maintenance to keep you ahead.' },
 ];
 
 const pillars = [
   { title: 'Speed',          desc: 'We move fast without breaking things. Our battle-tested process cuts time-to-market without sacrificing quality.' },
-  { title: 'Research-based', desc: 'Every decision is backed by data — user research, competitive analysis, and performance benchmarks.' },
+  { title: 'Research-based', desc: 'Every decision is backed by data: user research, competitive analysis, and performance benchmarks.' },
   { title: 'Unbiased',       desc: 'We recommend what actually solves your problem, not what pads our invoice.' },
 ];
 

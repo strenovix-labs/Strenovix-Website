@@ -52,7 +52,7 @@ const PROJECTS = [
   {
     id: '01',
     title: 'GNSS Error Prediction Engine',
-    modalTitle: 'ISRO — Satellite Orbit & Clock Error Correction ',
+    modalTitle: 'ISRO: Satellite Orbit & Clock Error Correction ',
     desc: 'Stacks LightGBM with deep learning models to predict satellite orbit and clock errors ahead of time (ISRO collaboration).',
     tag: 'Deep Learning',
     category: 'GNSS Error Prediction Engine',
@@ -75,7 +75,7 @@ const PROJECTS = [
     desc: 'A team of specialized LangGraph agents that reads a codebase to find documentation drift, powered by Gemini AI.',
     tag: 'AI Agents',
     category: 'Multi-Agent Documentation & Code Analysis Platform',
-    description: 'A team of specialized LangGraph agents that reads a codebase the way a senior engineer would — crawling the repository through the GitHub API, cross-referencing source against existing docs, and flagging drift: outdated explanations, undocumented functions, mismatched examples. Gemini AI powers the reasoning layer that turns raw code diffs into plain-English documentation fixes, so docs stay in sync with the code instead of quietly rotting.',
+    description: 'A team of specialized LangGraph agents that reads a codebase the way a senior engineer would, crawling the repository through the GitHub API, cross-referencing source against existing docs, and flagging drift: outdated explanations, undocumented functions, mismatched examples. Gemini AI powers the reasoning layer that turns raw code diffs into plain-English documentation fixes, so docs stay in sync with the code instead of quietly rotting.',
     tags: ['LangGraph', 'GitHub API', 'Gemini AI'],
     year: '2025',
     image: '/projects/docrift.jpg',
@@ -94,8 +94,8 @@ const PROJECTS = [
     modalTitle: 'Face Recognition Attendance System',
     desc: 'A real-time computer vision pipeline running in active departmental use, using InsightFace and a FastAPI backend.',
     tag: 'Computer Vision',
-    category: 'Live Department Deployment — Real-Time Vision Pipeline',
-    description: 'A real-time computer vision pipeline running in active departmental use — InsightFace handles detection and face embedding, a FastAPI backend serves recognition requests with sub-second latency, and SQLite in WAL mode keeps attendance writes consistent even with multiple entry points hitting it concurrently. Replaced manual roll-call with a walk-up-and-go system that has been running in production without a single missed check-in.',
+    category: 'Live Department Deployment: Real-Time Vision Pipeline',
+    description: 'A real-time computer vision pipeline running in active departmental use, where InsightFace handles detection and face embedding, a FastAPI backend serves recognition requests with sub-second latency, and SQLite in WAL mode keeps attendance writes consistent even with multiple entry points hitting it concurrently. Replaced manual roll-call with a walk-up-and-go system that has been running in production without a single missed check-in.',
     tags: ['InsightFace', 'FastAPI', 'SQLite WAL'],
     year: '2026',
     image: '/projects/face-attendance.jpg',
@@ -111,8 +111,8 @@ const PROJECTS = [
     modalTitle: 'Meiyo',
     desc: 'An image forensics tool built to detect manipulated and AI-generated photos using Error Level Analysis with 93% accuracy.',
     tag: 'Image Forensics',
-    category: 'AI Image Forensics Detector — 93% Detection Accuracy',
-    description: "An image forensics tool built to answer one question: is this photo real? Meiyo pairs a MobileNetV2 classifier with Error Level Analysis to surface compression and manipulation artefacts invisible to the naked eye, catching AI-generated and digitally altered images with 93% detection accuracy across benchmark testing — fast enough to run as a first-pass filter, not just a lab experiment.",
+    category: 'AI Image Forensics Detector: 93% Detection Accuracy',
+    description: "An image forensics tool built to answer one question: is this photo real? Meiyo pairs a MobileNetV2 classifier with Error Level Analysis to surface compression and manipulation artefacts invisible to the naked eye, catching AI-generated and digitally altered images with 93% detection accuracy across benchmark testing, fast enough to run as a first-pass filter, not just a lab experiment.",
     tags: ['MobileNetV2', 'Error Level Analysis'],
     year: '2025',
     image: '/projects/meiyo.jpg',
@@ -131,8 +131,8 @@ const PROJECTS = [
     modalTitle: 'Medical RAG Chatbot',
     desc: 'An AI medical assistant built on a Retrieval-Augmented Generation pipeline grounded in medical literature via FAISS.',
     tag: 'RAG / LLMs',
-    category: '2nd Place — Hack-a-Cure 2025, VIT Chennai (100+ teams)',
-    description: "An AI medical assistant built on a Retrieval-Augmented Generation pipeline — every answer is grounded in a curated corpus of medical literature via FAISS vector search, then reasoned over and phrased by Gemini AI so responses stay accurate instead of hallucinated. Built in a 24-hour hackathon sprint, it placed 2nd out of 100+ teams at Hack-a-Cure 2025, standing out to judges for retrieval precision and how confidently it handled edge-case medical queries under live testing.",
+    category: '2nd Place: Hack-a-Cure 2025, VIT Chennai (100+ teams)',
+    description: "An AI medical assistant built on a Retrieval-Augmented Generation pipeline: every answer is grounded in a curated corpus of medical literature via FAISS vector search, then reasoned over and phrased by Gemini AI so responses stay accurate instead of hallucinated. Built in a 24-hour hackathon sprint, it placed 2nd out of 100+ teams at Hack-a-Cure 2025, standing out to judges for retrieval precision and how confidently it handled edge-case medical queries under live testing.",
     tags: ['LangChain', 'FAISS', 'Gemini AI'],
     year: '2025',
     image: '/projects/medical-rag.jpg',
@@ -332,7 +332,7 @@ export default function MLPage() {
           Intelligence we've<br /><span className="ml-glow">engineered from scratch.</span>
         </h1>
         <p className="ml-sub">
-          Custom model training across Transformers, LSTM, CNN and Deep Neural Networks — solving real business problems with AI.
+          Custom model training across Transformers, LSTM, CNN and Deep Neural Networks, solving real business problems with AI.
         </p>
       </div>
 

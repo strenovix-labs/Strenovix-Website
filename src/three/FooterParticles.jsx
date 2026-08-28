@@ -39,7 +39,7 @@ function sampleTextPoints() {
 // formation math only runs once the footer is actually near the viewport.
 // Particles dissolve-assemble from scattered into a sampled "STRENOVIX"
 // glyph shape, triggered by an IntersectionObserver on the <footer> element
-// (FooterSection.jsx's own isInView already handles the DOM-side reveal —
+// (FooterSection.jsx's own isInView already handles the DOM-side reveal -
 // this is a decorative WebGL-side echo, not wired to it directly).
 export default function FooterParticles() {
   const pointsRef = useRef();

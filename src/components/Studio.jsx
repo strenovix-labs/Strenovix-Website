@@ -12,7 +12,7 @@ export default function Studio() {
           <span className="glow-text">industry leader.</span>
         </h2>
         <p className="studio-sub reveal reveal-delay-2">
-          We are a full-stack digital agency obsessed with craft. Every pixel, interaction and line of code is intentional — built to make your brand impossible to ignore.
+          We are a full-stack digital agency obsessed with craft. Every pixel, interaction and line of code is intentional, built to make your brand impossible to ignore.
         </p>
       </div>
 

@@ -1,6 +1,6 @@
 // Scroll-math-only module (no JSX, no three.js). Owns one normalized
 // scroll-progress value (0-1 across the full document) and a pub-sub
-// so multiple r3f components can read it without React re-renders —
+// so multiple r3f components can read it without React re-renders -
 // same zero-re-render intent as VortexBG.jsx's scrollSetterRef.
 //
 // Runs its own requestAnimationFrame loop, deliberately separate from

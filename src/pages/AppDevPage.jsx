@@ -7,7 +7,7 @@ export const products = [
   { 
     title: "Project Neyam", 
     thumbnail: "/projects/neyam-cover.jpg",
-    category: "Citizen App — Tamil Nadu Digital Election Accessibility",
+    category: "Citizen App: Tamil Nadu Digital Election Accessibility",
     description: "NEYAM is a citizen-facing mobile application designed to make voting accessible for differently-abled citizens. Developed under the guidance of the District Administration for the 2026 Legislative Assembly Election, the app lets voters locate polling booths, request real-time support/amenities, register complaints, and get queries resolved via a multi-lingual chatbot interface.",
     year: "2026",
     tags: ["React Native", "Node.js", "Conversational Chatbot", "Accessibility Integrations"],

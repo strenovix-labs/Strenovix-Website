@@ -51,7 +51,7 @@
   margin: 0 auto;
 }
 
-/* Perspective wrapper — required for the 3D tilt effect */
+/* Perspective wrapper - required for the 3D tilt effect */
 .hp-perspective-wrap {
   perspective: 1000px;
   transform-style: preserve-3d;

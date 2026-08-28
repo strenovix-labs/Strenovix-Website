@@ -4,7 +4,7 @@ import AnimatedLetter from './AnimatedLetter';
 import WordsPullUpMultiStyle from './WordsPullUpMultiStyle';
 
 const ABOUT_TEXT =
-  'Over the last three years, we have partnered with startups and enterprises across 12 industries — building apps, platforms, and campaigns that have earned recognition and driven measurable growth on an international scale.';
+  'Over the last three years, we have partnered with startups and enterprises across 12 industries building apps, platforms, and campaigns that have earned recognition and driven measurable growth on an international scale.';
 
 export default function AboutSection() {
   const containerRef = useRef(null);
@@ -14,7 +14,31 @@ export default function AboutSection() {
     offset: ['start 0.8', 'end 0.2'],
   });
 
-  const chars = ABOUT_TEXT.split('');
+  const words = ABOUT_TEXT.split(' ');
+
+  let charIndex = 0;
+  const structuredWords = words.map((word, wordIdx) => {
+    const wordChars = [];
+    for (let i = 0; i < word.length; i++) {
+      wordChars.push({
+        char: word[i],
+        index: charIndex++,
+      });
+    }
+
+    let spaceChar = null;
+    if (wordIdx < words.length - 1) {
+      spaceChar = {
+        char: ' ',
+        index: charIndex++,
+      };
+    }
+
+    return {
+      wordChars,
+      spaceChar,
+    };
+  });
 
   const segments = [
     { text: 'We are', className: 'font-normal text-black' },
@@ -46,14 +70,27 @@ export default function AboutSection() {
               className="text-xs sm:text-sm md:text-base"
               style={{ color: '#000000', lineHeight: 1.7 }}
             >
-              {chars.map((char, i) => (
-                <AnimatedLetter
-                  key={i}
-                  char={char}
-                  index={i}
-                  total={chars.length}
-                  scrollYProgress={scrollYProgress}
-                />
+              {structuredWords.map((wordObj, wordIdx) => (
+                <span key={wordIdx} className="inline-block whitespace-nowrap">
+                  {wordObj.wordChars.map((charObj) => (
+                    <AnimatedLetter
+                      key={charObj.index}
+                      char={charObj.char}
+                      index={charObj.index}
+                      total={ABOUT_TEXT.length}
+                      scrollYProgress={scrollYProgress}
+                    />
+                  ))}
+                  {wordObj.spaceChar && (
+                    <AnimatedLetter
+                      key={wordObj.spaceChar.index}
+                      char={wordObj.spaceChar.char}
+                      index={wordObj.spaceChar.index}
+                      total={ABOUT_TEXT.length}
+                      scrollYProgress={scrollYProgress}
+                    />
+                  )}
+                </span>
               ))}
             </p>
           </div>

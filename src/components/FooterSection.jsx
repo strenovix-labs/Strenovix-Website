@@ -44,7 +44,7 @@ export default function FooterSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12" ref={ref}>
 
-          {/* Left — headline + CTA */}
+          {/* Left - headline + CTA */}
           <div>
             {/* Available badge */}
             <motion.div
@@ -94,7 +94,7 @@ export default function FooterSection() {
             </motion.div>
           </div>
 
-          {/* Right — two mini link columns */}
+          {/* Right - two mini link columns */}
           <div className="grid grid-cols-2 gap-8 lg:justify-self-end lg:w-72">
 
             <motion.div
@@ -191,7 +191,7 @@ export default function FooterSection() {
           </nav>
 
           <p className="text-black/50 text-[11px] shrink-0">
-            © {new Date().getFullYear()} <span className="font-migra font-extrabold">Strenovix</span> — Crafted with precision.
+            © {new Date().getFullYear()} <span className="font-migra font-extrabold">Strenovix</span>, crafted with precision.
           </p>
 
         </div>

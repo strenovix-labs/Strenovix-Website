@@ -6,7 +6,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import './AppDevPage.css';  /* reuse shared back-bar styles */
 import './WebDevPage.css';
 
-/* ── MacbookScrollDemo (user's exact code — only image to be replaced) ── */
+/* ── MacbookScrollDemo (user's exact code: only image to be replaced) ── */
 function MacbookScrollDemo() {
   return (
     <div className="wdp-macbook-wrap">
@@ -35,7 +35,7 @@ const webProjects = [
     tech: 'React · Three.js · Vanilla CSS · Oxlint',
     desc: 'Immersive luxury showroom and interactive configurator for Land Rover\'s iconic lineup.',
     category: 'Luxury Automotive Interactive Showroom',
-    description: 'Land Rover "House of Brands" is an immersive interactive web application showcasing Land Rover’s iconic vehicle lineup—including Range Rover, Defender, and Discovery.\n\nThe platform provides a luxury digital showroom experience featuring an interactive 3D chassis animation renderer, a dynamic vehicle configurator (allowing real-time customization of exterior colors, wheels, interior trims, and accessories), detailed specs comparison tools, and smooth responsive navigation designed around luxury automotive branding aesthetics.',
+    description: 'Land Rover "House of Brands" is an immersive interactive web application showcasing Land Rover’s iconic vehicle lineup, including Range Rover, Defender, and Discovery.\n\nThe platform provides a luxury digital showroom experience featuring an interactive 3D chassis animation renderer, a dynamic vehicle configurator (allowing real-time customization of exterior colors, wheels, interior trims, and accessories), detailed specs comparison tools, and smooth responsive navigation designed around luxury automotive branding aesthetics.',
     tags: ['React', 'Three.js', 'Oxlint'],
     year: '2026',
     image: '/projects/jlr-rangerover.jpg',
@@ -55,8 +55,8 @@ const webProjects = [
     label: 'Storefront & Brand Commerce Builds',
     tech: 'React · Tailwind · Framer Motion',
     desc: 'E-commerce storefronts built for fashion and streetwear brands with custom animations.',
-    category: 'E-Commerce UI/UX — Fashion & Streetwear Storefronts',
-    description: "A series of e-commerce storefronts built for fashion and streetwear brands — React and Tailwind front-ends with Framer Motion micro-interactions, tuned for conversion rather than just looks: fast product browsing, low-friction checkout, and a visual identity that actually matches each brand instead of feeling like a template.",
+    category: 'E-Commerce UI/UX: Fashion & Streetwear Storefronts',
+    description: "A series of e-commerce storefronts built for fashion and streetwear brands, featuring React and Tailwind front-ends with Framer Motion micro-interactions, tuned for conversion rather than just looks: fast product browsing, low-friction checkout, and a visual identity that actually matches each brand instead of feeling like a template.",
     tags: ['React', 'Tailwind', 'Framer Motion'],
     year: '2025',
     image: '/projects/ecommerce.jpg',

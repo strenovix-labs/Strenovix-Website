@@ -9,7 +9,7 @@ const FLAGSHIP_PROJECTS = [
     tagline: "Tamil Nadu's first digital accessibility initiative for elections",
     category: 'Built under the guidance of the Dindigul District Collector for the 2026 Legislative Assembly Election',
     description:
-      "A two-app system built to make voting genuinely accessible for differently-abled citizens. NEYAM is the citizen-facing app — voters locate polling stations, request assistance, register, and raise complaints through a conversational chatbot flow, in English and Tamil. VoteAble is the companion admin app used by RO/ARO and BLO officers to track requests, visualize voter locations on a map, and route cases for resolution. Officially inaugurated at the District Collector's Office and covered across regional news outlets.",
+      "A two-app system built to make voting genuinely accessible for differently-abled citizens. NEYAM is the citizen-facing app: voters locate polling stations, request assistance, register, and raise complaints through a conversational chatbot flow, in English and Tamil. VoteAble is the companion admin app used by RO/ARO and BLO officers to track requests, visualize voter locations on a map, and route cases for resolution. Officially inaugurated at the District Collector's Office and covered across regional news outlets.",
     stats: [
       { label: 'Installs', value: '3.56K+' },
       { label: 'Total queries handled', value: '10K+' },
@@ -23,7 +23,7 @@ const FLAGSHIP_PROJECTS = [
   },
   {
     badgeLabel: 'Research Collaboration',
-    title: 'ISRO — Satellite Orbit & Clock Error Correction',
+    title: 'ISRO: Satellite Orbit & Clock Error Correction',
     tagline: 'Deep learning error prediction engine for satellite orbit and clock corrections',
     category: 'Built in partnership with ISRO (Indian Space Research Organisation)',
     description:
@@ -51,7 +51,7 @@ const FLAGSHIP_PROJECTS = [
     tagline: 'AI-powered real-time order-to-cash intelligence',
     category: 'Real-time fulfillment risk scoring and simulation',
     description:
-      "A proactive order intelligence platform that analyzes SAP sales orders in real time — identifying fulfillment risks across inventory, credit, and delivery. The system automatically scores and prioritizes high-risk orders, explains the root causes, and recommends corrective actions such as finance approval, prioritized picking, partial shipment, or expedited delivery. What-if simulations show the expected impact before an action is taken, helping teams turn SAP transactional data into faster, smarter fulfillment decisions.",
+      "A proactive order intelligence platform that analyzes SAP sales orders in real time, identifying fulfillment risks across inventory, credit, and delivery. The system automatically scores and prioritizes high-risk orders, explains the root causes, and recommends corrective actions such as finance approval, prioritized picking, partial shipment, or expedited delivery. What-if simulations show the expected impact before an action is taken, helping teams turn SAP transactional data into faster, smarter fulfillment decisions.",
     stats: [
       { label: 'Fulfillment speedup', value: '35%' },
       { label: 'Delay risk reduction', value: '33%' },
@@ -77,7 +77,7 @@ const PROJECTS = [
     title: 'DocRift',
     category: 'Multi-Agent Documentation & Code Analysis Platform',
     description:
-      'A team of specialized LangGraph agents that reads a codebase the way a senior engineer would — crawling the repository through the GitHub API, cross-referencing source against existing docs, and flagging drift: outdated explanations, undocumented functions, mismatched examples. Gemini AI powers the reasoning layer that turns raw code diffs into plain-English documentation fixes, so docs stay in sync with the code instead of quietly rotting.',
+      'A team of specialized LangGraph agents that reads a codebase the way a senior engineer would, crawling the repository through the GitHub API, cross-referencing source against existing docs, and flagging drift: outdated explanations, undocumented functions, mismatched examples. Gemini AI powers the reasoning layer that turns raw code diffs into plain-English documentation fixes, so docs stay in sync with the code instead of quietly rotting.',
     tags: ['LangGraph', 'GitHub API', 'Gemini AI'],
     year: '2025',
     image: '/projects/docrift.jpg',
@@ -93,9 +93,9 @@ const PROJECTS = [
   {
     id: '02',
     title: 'Face Recognition Attendance System',
-    category: 'Live Department Deployment — Real-Time Vision Pipeline',
+    category: 'Live Department Deployment: Real-Time Vision Pipeline',
     description:
-      'A real-time computer vision pipeline running in active departmental use — InsightFace handles detection and face embedding, a FastAPI backend serves recognition requests with sub-second latency, and SQLite in WAL mode keeps attendance writes consistent even with multiple entry points hitting it concurrently. Replaced manual roll-call with a walk-up-and-go system that has been running in production without a single missed check-in.',
+      'A real-time computer vision pipeline running in active departmental use, where InsightFace handles detection and face embedding, a FastAPI backend serves recognition requests with sub-second latency, and SQLite in WAL mode keeps attendance writes consistent even with multiple entry points hitting it concurrently. Replaced manual roll-call with a walk-up-and-go system that has been running in production without a single missed check-in.',
     tags: ['InsightFace', 'FastAPI', 'SQLite WAL'],
     year: '2026',
     image: '/projects/face-attendance.jpg',
@@ -108,9 +108,9 @@ const PROJECTS = [
   {
     id: '03',
     title: 'Meiyo',
-    category: 'AI Image Forensics Detector — 93% Detection Accuracy',
+    category: 'AI Image Forensics Detector: 93% Detection Accuracy',
     description:
-      "An image forensics tool built to answer one question: is this photo real? Meiyo pairs a MobileNetV2 classifier with Error Level Analysis to surface compression and manipulation artefacts invisible to the naked eye, catching AI-generated and digitally altered images with 93% detection accuracy across benchmark testing — fast enough to run as a first-pass filter, not just a lab experiment.",
+      "An image forensics tool built to answer one question: is this photo real? Meiyo pairs a MobileNetV2 classifier with Error Level Analysis to surface compression and manipulation artefacts invisible to the naked eye, catching AI-generated and digitally altered images with 93% detection accuracy across benchmark testing, fast enough to run as a first-pass filter, not just a lab experiment.",
     tags: ['MobileNetV2', 'Error Level Analysis'],
     year: '2025',
     image: '/projects/meiyo.jpg',
@@ -126,9 +126,9 @@ const PROJECTS = [
   {
     id: '04',
     title: 'Medical RAG Chatbot',
-    category: '2nd Place — Hack-a-Cure 2025, VIT Chennai (100+ teams)',
+    category: '2nd Place: Hack-a-Cure 2025, VIT Chennai (100+ teams)',
     description:
-      "An AI medical assistant built on a Retrieval-Augmented Generation pipeline — every answer is grounded in a curated corpus of medical literature via FAISS vector search, then reasoned over and phrased by Gemini AI so responses stay accurate instead of hallucinated. Built in a 24-hour hackathon sprint, it placed 2nd out of 100+ teams at Hack-a-Cure 2025, standing out to judges for retrieval precision and how confidently it handled edge-case medical queries under live testing.",
+      "An AI medical assistant built on a Retrieval-Augmented Generation pipeline: every answer is grounded in a curated corpus of medical literature via FAISS vector search, then reasoned over and phrased by Gemini AI so responses stay accurate instead of hallucinated. Built in a 24-hour hackathon sprint, it placed 2nd out of 100+ teams at Hack-a-Cure 2025, standing out to judges for retrieval precision and how confidently it handled edge-case medical queries under live testing.",
     tags: ['LangChain', 'FAISS', 'Gemini AI'],
     year: '2025',
     image: '/projects/medical-rag.jpg',
@@ -142,9 +142,9 @@ const PROJECTS = [
   {
     id: '05',
     title: 'Storefront & Brand Commerce Builds',
-    category: 'E-Commerce UI/UX — Fashion & Streetwear Storefronts',
+    category: 'E-Commerce UI/UX: Fashion & Streetwear Storefronts',
     description:
-      "A series of e-commerce storefronts built for fashion and streetwear brands — React and Tailwind front-ends with Framer Motion micro-interactions, tuned for conversion rather than just looks: fast product browsing, low-friction checkout, and a visual identity that actually matches each brand instead of feeling like a template.",
+      "A series of e-commerce storefronts built for fashion and streetwear brands, featuring React and Tailwind front-ends with Framer Motion micro-interactions, tuned for conversion rather than just looks: fast product browsing, low-friction checkout, and a visual identity that actually matches each brand instead of feeling like a template.",
     tags: ['React', 'Tailwind', 'Framer Motion'],
     year: '2025',
     image: '/projects/ecommerce.jpg',

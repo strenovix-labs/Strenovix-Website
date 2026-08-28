@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import './VortexBG.css';
 
-// Receives scrollSetterRef — App.jsx writes the setter into it so scroll
+// Receives scrollSetterRef - App.jsx writes the setter into it so scroll
 // updates bypass React's state system entirely (zero re-renders).
 export default function VortexBG({ scrollSetterRef }) {
   const mountRef = useRef(null);
@@ -24,7 +24,7 @@ export default function VortexBG({ scrollSetterRef }) {
       alpha: true,
       powerPreference: 'low-power',
     });
-    renderer.setPixelRatio(1);   // force 1× — biggest perf gain on retina displays
+    renderer.setPixelRatio(1);   // force 1× - biggest perf gain on retina displays
     renderer.setSize(mount.clientWidth, mount.clientHeight);
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
@@ -96,7 +96,7 @@ export default function VortexBG({ scrollSetterRef }) {
     };
     window.addEventListener('resize', handleResize);
 
-    // ── Render loop — 30 fps cap, scroll-only rotation ───────────────────────
+    // ── Render loop - 30 fps cap, scroll-only rotation ───────────────────────
     const FRAME_MS = 1000 / 30;  // 30 fps
     let lastTime = 0;
     let raf;
@@ -107,13 +107,13 @@ export default function VortexBG({ scrollSetterRef }) {
     const animate = (now) => {
       raf = requestAnimationFrame(animate);
 
-      // Hard throttle — skip frame if too early
+      // Hard throttle - skip frame if too early
       if (now - lastTime < FRAME_MS) return;
       lastTime = now;
 
       const sp = scrollRef.current;
 
-      // Scroll-driven targets — ZERO auto-rotation
+      // Scroll-driven targets - ZERO auto-rotation
       const tRotY = sp * Math.PI * 1.4;
       const tRotX = sp * 0.5;
       const tCamZ = 5 + sp * 4;

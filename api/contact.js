@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       from: fromEmail,
       to: toEmail,
       reply_to: trimmedEmail,
-      subject: `New Portfolio Contact — ${trimmedName}`,
+      subject: `New Portfolio Contact: ${trimmedName}`,
       html: `
 <!DOCTYPE html>
 <html lang="en">

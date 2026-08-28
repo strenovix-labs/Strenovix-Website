@@ -81,7 +81,7 @@ export default function ContactSection({ prefilledEmail }) {
             </h2>
             <p className="text-black/70 text-sm sm:text-base leading-relaxed max-w-sm">
               Drop us a message and we'll get back to you within 24 hours. We love talking
-              about ambitious projects — big or small.
+              about ambitious projects, big or small.
             </p>
 
             <div className="mt-10 space-y-4">
@@ -94,7 +94,7 @@ export default function ContactSection({ prefilledEmail }) {
             </div>
           </motion.div>
 
-          {/* Right — form */}
+          {/* Right - form */}
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
