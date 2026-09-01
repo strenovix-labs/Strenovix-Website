@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, Globe, Link2, Mail, MapPin } from 'lucide-react';
 import WordsPullUp from './WordsPullUp';
 import TextLoop from './ui/TextLoop';
+import { useRouter } from '../RouterContext';
 
 const NAV_LINKS = [
   { label: 'Our Story', href: '#our-story' },
@@ -10,6 +11,11 @@ const NAV_LINKS = [
   { label: 'Work', href: '#work' },
   { label: 'Team', href: '#team' },
   { label: 'Contact', href: '#contact' },
+];
+
+const LEGAL_LINKS = [
+  { label: 'Privacy Policy', path: 'privacy-policy', href: '#privacy-policy' },
+  { label: 'Terms & Conditions', path: 'terms-and-conditions', href: '#terms-and-conditions' },
 ];
 
 const SERVICES = [
@@ -28,6 +34,7 @@ const SOCIALS = [
 const EASE = [0.16, 1, 0.3, 1];
 
 export default function FooterSection() {
+  const { navigate } = useRouter();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-60px' });
 
@@ -38,9 +45,9 @@ export default function FooterSection() {
       <div className="bg-noise absolute inset-0 opacity-[0.08] pointer-events-none" />
 
       {/* ── CTA section ─────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-24 md:pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 pt-4 md:pt-6">
 
-        <div className="border-t border-black/[0.08] mb-16 md:mb-20" />
+        <div className="border-t border-black/[0.08] mb-10 md:mb-12" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12" ref={ref}>
 
@@ -178,17 +185,35 @@ export default function FooterSection() {
       <div className="relative z-10 mt-16 md:mt-20 border-t border-black/10 pt-8 pb-12">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-4 md:px-8">
 
-          <nav className="flex flex-wrap gap-4 sm:gap-6">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-black/60 text-[11px] hover:text-[#F04A00] transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <nav className="flex flex-wrap gap-4 sm:gap-6">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-black/60 text-[11px] hover:text-[#F04A00] transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+            <span className="text-black/20 hidden sm:inline">•</span>
+            <div className="flex flex-wrap gap-4 sm:gap-6">
+              {LEGAL_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(link.path);
+                  }}
+                  className="text-black/60 text-[11px] hover:text-[#F04A00] transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
 
           <p className="text-black/50 text-[11px] shrink-0">
             © {new Date().getFullYear()} <span className="font-migra font-extrabold">Strenovix</span>, crafted with precision.

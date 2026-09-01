@@ -3,8 +3,9 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import handler from './api/contact.js';
 
-// Load environment variables from .env.local
-dotenv.config({ path: '.env.local' });
+// Load environment variables (.env and .env.local)
+dotenv.config();
+dotenv.config({ path: '.env.local', override: true });
 
 const app = express();
 

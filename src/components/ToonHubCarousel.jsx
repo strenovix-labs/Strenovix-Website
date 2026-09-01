@@ -6,7 +6,7 @@ const MEMBERS = [
   { name: 'Rupesh', role: 'App Developer', image: '/team/rupesh.png' },
   { name: 'Sajan', role: 'FullStack Developer', image: '/team/sajan.png' },
   { name: 'Sanjay', role: 'SaaS Engineer', image: '/team/sanjay.png' },
-  { name: 'Tamil', role: 'Data Analyst', image: '/team/tamil.png' },
+  { name: 'Tamil', role: 'Data Analyst · Full Stack', image: '/team/tamil.png' },
   { name: 'Roobak Vijai', role: 'App Developer', image: '/team/vijai-compressed.png' },
 ];
 

@@ -1,0 +1,53 @@
+.page-loader-bar-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 10000;
+  pointer-events: none;
+  background: transparent;
+}
+
+.page-loader-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #F04A00 0%, #ff8a50 50%, #F04A00 100%);
+  box-shadow: 0 0 10px rgba(240, 74, 0, 0.7), 0 0 5px rgba(240, 74, 0, 0.4);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.page-initial-curtain {
+  position: fixed;
+  inset: 0;
+  background: #F5F5EE;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.page-curtain-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(0, 0, 0, 0.08);
+  border-top-color: #F04A00;
+  border-radius: 50%;
+  animation: curtain-spin 0.8s linear infinite;
+  margin-bottom: 16px;
+}
+
+.page-curtain-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  color: #000000;
+  opacity: 0.8;
+}
+
+@keyframes curtain-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

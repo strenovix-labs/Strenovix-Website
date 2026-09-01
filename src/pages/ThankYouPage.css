@@ -1,0 +1,172 @@
+.thankyou-root {
+  min-height: 100vh;
+  width: 100%;
+  background: #F5F5EE;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.thankyou-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 60px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.thankyou-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #16a34a;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.thankyou-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.thankyou-subtitle {
+  font-size: clamp(15px, 2.2vw, 18px);
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.65);
+  max-width: 580px;
+  margin: 0 auto 40px;
+}
+
+.thankyou-roadmap {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.thankyou-roadmap-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #F04A00;
+  font-weight: 700;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.thankyou-steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .thankyou-steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.thankyou-step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.thankyou-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F5F5EE;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #000000;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.thankyou-step-heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.thankyou-step-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.thankyou-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.thankyou-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #000000;
+  color: #F5F5EE;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.thankyou-btn-primary:hover {
+  background: #F04A00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 74, 0, 0.3);
+}
+
+.thankyou-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.thankyou-btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.09);
+  transform: translateY(-1px);
+}

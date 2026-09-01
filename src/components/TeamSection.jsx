@@ -44,7 +44,7 @@ const teamItems = [
   {
     image: '/team/tamil.png',
     title: 'Tamil',
-    subtitle: 'App Developer · Data Analyst · SAP',
+    subtitle: 'Data Analyst · SAP · App · Full Stack Developer',
     handle: '@tamil',
     borderColor: '#F04A00',
     gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
