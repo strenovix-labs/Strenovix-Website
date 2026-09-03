@@ -21,9 +21,14 @@ const HOME_ANCHORS = new Set([
   'about'
 ]);
 
-export const normalizeRoute = (rawHash) => {
-  if (!rawHash) return '';
-  const clean = rawHash.replace(/^#\/?/, '').replace(/\/+$/, '').trim().toLowerCase();
+export const normalizeRoute = (rawPathOrHash) => {
+  if (!rawPathOrHash) return '';
+  const clean = rawPathOrHash
+    .replace(/^#\/?/, '')
+    .replace(/^\/+/, '')
+    .replace(/\/+$/, '')
+    .trim()
+    .toLowerCase();
   
   if (HOME_ANCHORS.has(clean)) {
     return '';
@@ -41,7 +46,12 @@ export const normalizeRoute = (rawHash) => {
   return clean;
 };
 
-const getRoute = () => normalizeRoute(window.location.hash);
+const getRoute = () => {
+  if (window.location.hash && window.location.hash !== '#' && window.location.hash !== '#/') {
+    return normalizeRoute(window.location.hash);
+  }
+  return normalizeRoute(window.location.pathname);
+};
 
 export function RouterProvider({ children }) {
   const [route, setRoute] = useState(getRoute);
@@ -54,10 +64,14 @@ export function RouterProvider({ children }) {
     };
 
     window.addEventListener('hashchange', handle);
+    window.addEventListener('popstate', handle);
     // Initial page track
     trackPageView(getRoute());
 
-    return () => window.removeEventListener('hashchange', handle);
+    return () => {
+      window.removeEventListener('hashchange', handle);
+      window.removeEventListener('popstate', handle);
+    };
   }, []);
 
   const navigate = (path) => {
