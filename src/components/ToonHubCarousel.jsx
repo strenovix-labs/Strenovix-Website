@@ -8,6 +8,8 @@ const MEMBERS = [
   { name: 'Sanjay', role: 'SaaS Engineer', image: '/team/sanjay.png' },
   { name: 'Tamil', role: 'Data Analyst · Full Stack', image: '/team/tamil.png' },
   { name: 'Roobak Vijai', role: 'App Developer', image: '/team/vijai-compressed.png' },
+  { name: 'Rohith', role: 'Software Engineer', image: '/team/rohith-transparent.png', scale: 1.35 },
+  { name: 'Santhosh', role: 'Software Engineer', image: '/team/santhosh-transparent.png' },
 ];
 
 const N = MEMBERS.length;
@@ -226,6 +228,7 @@ export default function ToonHubCarousel() {
                        Some photos have more headroom above the subject, so their
                        vertical focus is overridden per-member (focusY). */
                     objectPosition: `58% ${member.focusY || '8%'}`,
+                    ...(member.scale ? { transform: `scale(${member.scale})`, transformOrigin: 'center 20%' } : {}),
                     display: 'block',
                     /* Radial gradient mask: face/body visible at centre,
                        edges fade to transparent → floating sticker, no hard rectangle */

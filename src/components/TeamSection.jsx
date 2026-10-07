@@ -58,6 +58,28 @@ const teamItems = [
     borderColor: '#F04A00',
     gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
     url: ''
+  },
+  {
+    image: '/team/rohith-transparent.png',
+    title: 'Rohith',
+    subtitle: 'Software Engineer',
+    handle: '@rohith',
+    borderColor: '#F04A00',
+    gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
+    url: '',
+    objectPosition: 'center top',
+    scale: 1.5,
+    transformOrigin: 'center 15%'
+  },
+  {
+    image: '/team/santhosh-transparent.png',
+    title: 'Santhosh',
+    subtitle: 'Software Engineer',
+    handle: '@santhosh',
+    borderColor: '#F04A00',
+    gradient: 'linear-gradient(135deg, #000000 0%, #d1d5db 100%)',
+    url: '',
+    objectPosition: 'center top'
   }
 ];
 
@@ -110,7 +132,7 @@ export default function TeamSection() {
             fadeOut={2}
             ease="power3.out"
             columns={3}
-            rows={2}
+            rows={Math.ceil(teamItems.length / 3)}
           />
         </div>
 

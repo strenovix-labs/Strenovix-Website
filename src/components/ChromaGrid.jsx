@@ -108,7 +108,11 @@ export const ChromaGrid = ({
               src={c.image} 
               alt={c.title} 
               loading="lazy" 
-              style={c.objectPosition ? { objectPosition: c.objectPosition } : undefined}
+              style={{
+                ...(c.objectPosition ? { objectPosition: c.objectPosition } : {}),
+                ...(c.scale ? { transform: `scale(${c.scale})`, transformOrigin: c.transformOrigin || 'center 20%' } : {}),
+                ...c.imageStyle
+              }}
             />
             <footer className="chroma-info">
               {c.handle && <span className="handle">{c.handle}</span>}
