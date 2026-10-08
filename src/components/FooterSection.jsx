@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, Globe, Link2, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Link2, Mail, MapPin } from 'lucide-react';
 import WordsPullUp from './WordsPullUp';
 import TextLoop from './ui/TextLoop';
 import { useRouter } from '../RouterContext';
@@ -26,7 +26,6 @@ const SERVICES = [
 ];
 
 const SOCIALS = [
-  { label: 'GitHub', href: 'https://github.com/strenovix-labs', icon: Globe },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/strenovix', icon: Link2 },
   { label: 'Email', href: 'mailto:strenovix@gmail.com', icon: Mail },
 ];
