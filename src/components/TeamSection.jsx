@@ -127,6 +127,7 @@ export default function TeamSection() {
         <div style={{ minHeight: '600px', position: 'relative' }}>
           <ChromaGrid 
             items={teamItems}
+            className="team-chroma-grid"
             radius={800}
             damping={2}
             fadeOut={2}
